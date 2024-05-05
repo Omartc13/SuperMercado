@@ -1,4 +1,4 @@
-package vista;
+package Vistas;
 
 import java.awt.Image;
 import javax.swing.Icon;
