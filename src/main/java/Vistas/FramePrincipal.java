@@ -58,7 +58,6 @@ public class FramePrincipal extends javax.swing.JFrame {
         jMenuItem1.setText("jMenuItem1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -66,14 +65,14 @@ public class FramePrincipal extends javax.swing.JFrame {
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/FondoContenedor.png"))); // NOI18N
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 0, 810, 560));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1110, 570));
+        getContentPane().add(jPanel1, java.awt.BorderLayout.CENTER);
 
         jMenuBar1.setBackground(new java.awt.Color(0, 102, 102));
         jMenuBar1.setAlignmentX(2.5F);
 
         jMenu2.setBackground(new java.awt.Color(0, 102, 102));
         jMenu2.setForeground(new java.awt.Color(255, 255, 255));
-        jMenu2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/HorarioLogo 1.png"))); // NOI18N
+        jMenu2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/HorarioLogo 1.png"))); // NOI18N
         jMenu2.setText("HORARIOS");
         jMenu2.setCursor(new java.awt.Cursor(java.awt.Cursor.N_RESIZE_CURSOR));
         jMenu2.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
@@ -104,7 +103,7 @@ public class FramePrincipal extends javax.swing.JFrame {
 
         jMenu3.setBackground(new java.awt.Color(0, 102, 102));
         jMenu3.setForeground(new java.awt.Color(255, 255, 255));
-        jMenu3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/PagosLogo.png"))); // NOI18N
+        jMenu3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/pagos.png"))); // NOI18N
         jMenu3.setText("PAGOS");
         jMenu3.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
 
@@ -134,7 +133,7 @@ public class FramePrincipal extends javax.swing.JFrame {
 
         jMenu4.setBackground(new java.awt.Color(0, 102, 102));
         jMenu4.setForeground(new java.awt.Color(255, 255, 255));
-        jMenu4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/EmpleadosLogo.png"))); // NOI18N
+        jMenu4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/emple.png"))); // NOI18N
         jMenu4.setText("EMPLEADOS");
         jMenu4.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
 
@@ -153,7 +152,7 @@ public class FramePrincipal extends javax.swing.JFrame {
 
         jMenu5.setBackground(new java.awt.Color(0, 102, 102));
         jMenu5.setForeground(new java.awt.Color(255, 255, 255));
-        jMenu5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/AsistenciaLogo.png"))); // NOI18N
+        jMenu5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/asistencia.png"))); // NOI18N
         jMenu5.setText("ASISTENCIA");
         jMenu5.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
 
@@ -183,7 +182,7 @@ public class FramePrincipal extends javax.swing.JFrame {
 
         jMenu6.setBackground(new java.awt.Color(0, 102, 102));
         jMenu6.setForeground(new java.awt.Color(255, 255, 255));
-        jMenu6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/TiendaLogo.png"))); // NOI18N
+        jMenu6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/info.png"))); // NOI18N
         jMenu6.setText("MI TIENDA");
         jMenu6.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
 
@@ -202,7 +201,7 @@ public class FramePrincipal extends javax.swing.JFrame {
 
         jMenu7.setBackground(new java.awt.Color(0, 102, 102));
         jMenu7.setForeground(new java.awt.Color(255, 255, 255));
-        jMenu7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/CerrarLogo.png"))); // NOI18N
+        jMenu7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/cerrarSesion.png"))); // NOI18N
         jMenu7.setText("CERRAR SESIÓN");
         jMenu7.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
 
