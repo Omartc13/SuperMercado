@@ -35,7 +35,13 @@ public class FramePrincipal extends javax.swing.JFrame {
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
         jPanel1 = new javax.swing.JPanel();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
+        jPanel4 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        jDesktopPane1 = new javax.swing.JDesktopPane();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu2 = new javax.swing.JMenu();
         jMItemAsigHorarios = new javax.swing.JMenuItem();
@@ -59,27 +65,135 @@ public class FramePrincipal extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel1.setBackground(new java.awt.Color(255, 64, 64));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/FondoContenedor.png"))); // NOI18N
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 0, 810, 560));
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel3.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 3, true));
+        jPanel3.setForeground(new java.awt.Color(0, 0, 0));
+
+        jLabel2.setFont(new java.awt.Font("STXinwei", 0, 24)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setText("ANUNCIO");
+        jLabel2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap(48, Short.MAX_VALUE)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20))
+        );
+
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 3, true));
+        jPanel2.setForeground(new java.awt.Color(0, 0, 0));
+
+        jLabel3.setFont(new java.awt.Font("STXinwei", 0, 24)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel3.setText("ANUNCIO");
+        jLabel3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(34, 34, 34)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(35, Short.MAX_VALUE))
+        );
+
+        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel4.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 3, true));
+        jPanel4.setForeground(new java.awt.Color(0, 0, 0));
+
+        jLabel1.setFont(new java.awt.Font("STXinwei", 0, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("ANUNCIO");
+        jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(35, 35, 35)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(34, Short.MAX_VALUE))
+        );
+
+        jDesktopPane1.setBackground(new java.awt.Color(255, 255, 255));
+        jDesktopPane1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap(15, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jDesktopPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 785, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(25, 25, 25))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jDesktopPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 530, Short.MAX_VALUE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(19, 19, 19))
+        );
 
         getContentPane().add(jPanel1, java.awt.BorderLayout.CENTER);
 
-        jMenuBar1.setBackground(new java.awt.Color(0, 102, 102));
+        jMenuBar1.setBackground(new java.awt.Color(255, 255, 255));
+        jMenuBar1.setForeground(new java.awt.Color(0, 0, 0));
         jMenuBar1.setAlignmentX(2.5F);
 
-        jMenu2.setBackground(new java.awt.Color(0, 102, 102));
-        jMenu2.setForeground(new java.awt.Color(255, 255, 255));
+        jMenu2.setBackground(new java.awt.Color(255, 51, 51));
+        jMenu2.setBorder(null);
         jMenu2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/HorarioLogo 1.png"))); // NOI18N
         jMenu2.setText("HORARIOS");
-        jMenu2.setCursor(new java.awt.Cursor(java.awt.Cursor.N_RESIZE_CURSOR));
+        jMenu2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jMenu2.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
 
-        jMItemAsigHorarios.setBackground(new java.awt.Color(153, 204, 255));
-        jMItemAsigHorarios.setFont(new java.awt.Font("Segoe UI Black", 1, 12)); // NOI18N
-        jMItemAsigHorarios.setForeground(new java.awt.Color(255, 255, 255));
+        jMItemAsigHorarios.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
         jMItemAsigHorarios.setText("Asignación de horarios");
         jMItemAsigHorarios.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -88,9 +202,7 @@ public class FramePrincipal extends javax.swing.JFrame {
         });
         jMenu2.add(jMItemAsigHorarios);
 
-        jMItemInfoHorarios.setBackground(new java.awt.Color(153, 204, 255));
-        jMItemInfoHorarios.setFont(new java.awt.Font("Segoe UI Black", 1, 12)); // NOI18N
-        jMItemInfoHorarios.setForeground(new java.awt.Color(255, 255, 255));
+        jMItemInfoHorarios.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
         jMItemInfoHorarios.setText("Ver horarios");
         jMItemInfoHorarios.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -101,15 +213,12 @@ public class FramePrincipal extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu2);
 
-        jMenu3.setBackground(new java.awt.Color(0, 102, 102));
-        jMenu3.setForeground(new java.awt.Color(255, 255, 255));
+        jMenu3.setBackground(new java.awt.Color(51, 51, 255));
         jMenu3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/pagos.png"))); // NOI18N
         jMenu3.setText("PAGOS");
         jMenu3.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
 
-        jMItemGestPagos.setBackground(new java.awt.Color(153, 204, 255));
-        jMItemGestPagos.setFont(new java.awt.Font("Segoe UI Black", 1, 12)); // NOI18N
-        jMItemGestPagos.setForeground(new java.awt.Color(255, 255, 255));
+        jMItemGestPagos.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
         jMItemGestPagos.setText("Gestionar pagos");
         jMItemGestPagos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -118,9 +227,7 @@ public class FramePrincipal extends javax.swing.JFrame {
         });
         jMenu3.add(jMItemGestPagos);
 
-        jMItemVerPagos.setBackground(new java.awt.Color(153, 204, 255));
-        jMItemVerPagos.setFont(new java.awt.Font("Segoe UI Black", 1, 12)); // NOI18N
-        jMItemVerPagos.setForeground(new java.awt.Color(255, 255, 255));
+        jMItemVerPagos.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
         jMItemVerPagos.setText("Ver pagos");
         jMItemVerPagos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -131,15 +238,11 @@ public class FramePrincipal extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu3);
 
-        jMenu4.setBackground(new java.awt.Color(0, 102, 102));
-        jMenu4.setForeground(new java.awt.Color(255, 255, 255));
         jMenu4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/emple.png"))); // NOI18N
         jMenu4.setText("EMPLEADOS");
         jMenu4.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
 
-        jMItemGestEmple.setBackground(new java.awt.Color(153, 204, 255));
-        jMItemGestEmple.setFont(new java.awt.Font("Segoe UI Black", 1, 12)); // NOI18N
-        jMItemGestEmple.setForeground(new java.awt.Color(255, 255, 255));
+        jMItemGestEmple.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
         jMItemGestEmple.setText("Gestionar empleados");
         jMItemGestEmple.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -150,15 +253,11 @@ public class FramePrincipal extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu4);
 
-        jMenu5.setBackground(new java.awt.Color(0, 102, 102));
-        jMenu5.setForeground(new java.awt.Color(255, 255, 255));
         jMenu5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/asistencia.png"))); // NOI18N
         jMenu5.setText("ASISTENCIA");
         jMenu5.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
 
-        jMItemVerAsistencias.setBackground(new java.awt.Color(153, 204, 255));
-        jMItemVerAsistencias.setFont(new java.awt.Font("Segoe UI Black", 1, 12)); // NOI18N
-        jMItemVerAsistencias.setForeground(new java.awt.Color(255, 255, 255));
+        jMItemVerAsistencias.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
         jMItemVerAsistencias.setText("Ver asistencias");
         jMItemVerAsistencias.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -167,9 +266,7 @@ public class FramePrincipal extends javax.swing.JFrame {
         });
         jMenu5.add(jMItemVerAsistencias);
 
-        jMItemRegistrarAsistencias.setBackground(new java.awt.Color(153, 204, 255));
-        jMItemRegistrarAsistencias.setFont(new java.awt.Font("Segoe UI Black", 1, 12)); // NOI18N
-        jMItemRegistrarAsistencias.setForeground(new java.awt.Color(255, 255, 255));
+        jMItemRegistrarAsistencias.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
         jMItemRegistrarAsistencias.setText("Registrar asistencias");
         jMItemRegistrarAsistencias.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -180,15 +277,11 @@ public class FramePrincipal extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu5);
 
-        jMenu6.setBackground(new java.awt.Color(0, 102, 102));
-        jMenu6.setForeground(new java.awt.Color(255, 255, 255));
         jMenu6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/info.png"))); // NOI18N
         jMenu6.setText("MI TIENDA");
         jMenu6.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
 
-        jMItemMiTienda.setBackground(new java.awt.Color(153, 204, 255));
-        jMItemMiTienda.setFont(new java.awt.Font("Segoe UI Black", 1, 12)); // NOI18N
-        jMItemMiTienda.setForeground(new java.awt.Color(255, 255, 255));
+        jMItemMiTienda.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
         jMItemMiTienda.setText("Gestionar tienda");
         jMItemMiTienda.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -199,15 +292,11 @@ public class FramePrincipal extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu6);
 
-        jMenu7.setBackground(new java.awt.Color(0, 102, 102));
-        jMenu7.setForeground(new java.awt.Color(255, 255, 255));
         jMenu7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/cerrarSesion.png"))); // NOI18N
         jMenu7.setText("CERRAR SESIÓN");
         jMenu7.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
 
-        jMItemCerrar1.setBackground(new java.awt.Color(153, 204, 255));
-        jMItemCerrar1.setFont(new java.awt.Font("Segoe UI Black", 1, 12)); // NOI18N
-        jMItemCerrar1.setForeground(new java.awt.Color(255, 255, 255));
+        jMItemCerrar1.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
         jMItemCerrar1.setText("Cerrar Sesión");
         jMItemCerrar1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -224,7 +313,9 @@ public class FramePrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMItemAsigHorariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMItemAsigHorariosActionPerformed
-
+        IFormAsigHorario IAHorario = new IFormAsigHorario();
+        jDesktopPane1.add(IAHorario);
+        IAHorario.setVisible(true);
     }//GEN-LAST:event_jMItemAsigHorariosActionPerformed
 
     private void jMItemInfoHorariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMItemInfoHorariosActionPerformed
@@ -298,7 +389,10 @@ public class FramePrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JMenuItem jMItemAsigHorarios;
     private javax.swing.JMenuItem jMItemCerrar1;
     private javax.swing.JMenuItem jMItemGestEmple;
@@ -318,5 +412,8 @@ public class FramePrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     // End of variables declaration//GEN-END:variables
 }
