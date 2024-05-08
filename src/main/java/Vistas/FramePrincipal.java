@@ -7,26 +7,31 @@ package Vistas;
 import javax.swing.JDesktopPane;
 import javax.swing.JFrame;
 import VistasInternas.AsignaciónHorarios;
+import javax.swing.JMenu;
+import javax.swing.JMenuItem;
+import javax.swing.UIManager;
 
 /**
  *
  * @author luism
  */
 public class FramePrincipal extends javax.swing.JFrame {
-    
+
     private JDesktopPane desktopPane;
-    
+
     public FramePrincipal() {
         initComponents();
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setLocationRelativeTo(null); 
+        setLocationRelativeTo(null);
         desktopPane = new JDesktopPane();
         getContentPane().add(desktopPane);
-    
+        // Cambiar el color de fondo del menú
+        UIManager.put("Menu.background", new javax.swing.plaf.ColorUIResource(255, 0, 0));
+        // Cambiar el color de texto del menú
+        UIManager.put("Menu.foreground", new javax.swing.plaf.ColorUIResource(255, 255, 255));
+        // Volver a pintar el menú para que se reflejen los cambios
+        jMenuBar1.updateUI();
     }
-
-
-
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -43,20 +48,20 @@ public class FramePrincipal extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jDesktopPane1 = new javax.swing.JDesktopPane();
         jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu2 = new javax.swing.JMenu();
+        jMenuHorarios = new javax.swing.JMenu();
         jMItemAsigHorarios = new javax.swing.JMenuItem();
         jMItemInfoHorarios = new javax.swing.JMenuItem();
-        jMenu3 = new javax.swing.JMenu();
+        jMenuPagos = new javax.swing.JMenu();
         jMItemGestPagos = new javax.swing.JMenuItem();
         jMItemVerPagos = new javax.swing.JMenuItem();
-        jMenu4 = new javax.swing.JMenu();
+        jMenuEmpleados = new javax.swing.JMenu();
         jMItemGestEmple = new javax.swing.JMenuItem();
-        jMenu5 = new javax.swing.JMenu();
+        jMenuAsistencia = new javax.swing.JMenu();
         jMItemVerAsistencias = new javax.swing.JMenuItem();
         jMItemRegistrarAsistencias = new javax.swing.JMenuItem();
-        jMenu6 = new javax.swing.JMenu();
+        jMenuMitienda = new javax.swing.JMenu();
         jMItemMiTienda = new javax.swing.JMenuItem();
-        jMenu7 = new javax.swing.JMenu();
+        jMenuCerrarSesion = new javax.swing.JMenu();
         jMItemCerrar1 = new javax.swing.JMenuItem();
 
         jMenu1.setText("jMenu1");
@@ -182,16 +187,16 @@ public class FramePrincipal extends javax.swing.JFrame {
 
         getContentPane().add(jPanel1, java.awt.BorderLayout.CENTER);
 
-        jMenuBar1.setBackground(new java.awt.Color(255, 255, 255));
+        jMenuBar1.setBackground(new java.awt.Color(255, 0, 0));
         jMenuBar1.setForeground(new java.awt.Color(0, 0, 0));
         jMenuBar1.setAlignmentX(2.5F);
 
-        jMenu2.setBackground(new java.awt.Color(255, 51, 51));
-        jMenu2.setBorder(null);
-        jMenu2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/HorarioLogo 1.png"))); // NOI18N
-        jMenu2.setText("HORARIOS");
-        jMenu2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jMenu2.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
+        jMenuHorarios.setBackground(new java.awt.Color(255, 0, 0));
+        jMenuHorarios.setBorder(null);
+        jMenuHorarios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/HorarioLogo 1.png"))); // NOI18N
+        jMenuHorarios.setText("HORARIOS");
+        jMenuHorarios.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jMenuHorarios.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
 
         jMItemAsigHorarios.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
         jMItemAsigHorarios.setText("Asignación de horarios");
@@ -200,7 +205,7 @@ public class FramePrincipal extends javax.swing.JFrame {
                 jMItemAsigHorariosActionPerformed(evt);
             }
         });
-        jMenu2.add(jMItemAsigHorarios);
+        jMenuHorarios.add(jMItemAsigHorarios);
 
         jMItemInfoHorarios.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
         jMItemInfoHorarios.setText("Ver horarios");
@@ -209,14 +214,14 @@ public class FramePrincipal extends javax.swing.JFrame {
                 jMItemInfoHorariosActionPerformed(evt);
             }
         });
-        jMenu2.add(jMItemInfoHorarios);
+        jMenuHorarios.add(jMItemInfoHorarios);
 
-        jMenuBar1.add(jMenu2);
+        jMenuBar1.add(jMenuHorarios);
 
-        jMenu3.setBackground(new java.awt.Color(51, 51, 255));
-        jMenu3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/pagos.png"))); // NOI18N
-        jMenu3.setText("PAGOS");
-        jMenu3.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
+        jMenuPagos.setBackground(new java.awt.Color(255, 0, 0));
+        jMenuPagos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/pagos.png"))); // NOI18N
+        jMenuPagos.setText("PAGOS");
+        jMenuPagos.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
 
         jMItemGestPagos.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
         jMItemGestPagos.setText("Gestionar pagos");
@@ -225,7 +230,7 @@ public class FramePrincipal extends javax.swing.JFrame {
                 jMItemGestPagosActionPerformed(evt);
             }
         });
-        jMenu3.add(jMItemGestPagos);
+        jMenuPagos.add(jMItemGestPagos);
 
         jMItemVerPagos.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
         jMItemVerPagos.setText("Ver pagos");
@@ -234,13 +239,14 @@ public class FramePrincipal extends javax.swing.JFrame {
                 jMItemVerPagosActionPerformed(evt);
             }
         });
-        jMenu3.add(jMItemVerPagos);
+        jMenuPagos.add(jMItemVerPagos);
 
-        jMenuBar1.add(jMenu3);
+        jMenuBar1.add(jMenuPagos);
 
-        jMenu4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/emple.png"))); // NOI18N
-        jMenu4.setText("EMPLEADOS");
-        jMenu4.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
+        jMenuEmpleados.setBackground(new java.awt.Color(255, 0, 0));
+        jMenuEmpleados.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/emple.png"))); // NOI18N
+        jMenuEmpleados.setText("EMPLEADOS");
+        jMenuEmpleados.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
 
         jMItemGestEmple.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
         jMItemGestEmple.setText("Gestionar empleados");
@@ -249,13 +255,14 @@ public class FramePrincipal extends javax.swing.JFrame {
                 jMItemGestEmpleActionPerformed(evt);
             }
         });
-        jMenu4.add(jMItemGestEmple);
+        jMenuEmpleados.add(jMItemGestEmple);
 
-        jMenuBar1.add(jMenu4);
+        jMenuBar1.add(jMenuEmpleados);
 
-        jMenu5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/asistencia.png"))); // NOI18N
-        jMenu5.setText("ASISTENCIA");
-        jMenu5.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
+        jMenuAsistencia.setBackground(new java.awt.Color(255, 0, 0));
+        jMenuAsistencia.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/asistencia.png"))); // NOI18N
+        jMenuAsistencia.setText("ASISTENCIA");
+        jMenuAsistencia.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
 
         jMItemVerAsistencias.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
         jMItemVerAsistencias.setText("Ver asistencias");
@@ -264,7 +271,7 @@ public class FramePrincipal extends javax.swing.JFrame {
                 jMItemVerAsistenciasActionPerformed(evt);
             }
         });
-        jMenu5.add(jMItemVerAsistencias);
+        jMenuAsistencia.add(jMItemVerAsistencias);
 
         jMItemRegistrarAsistencias.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
         jMItemRegistrarAsistencias.setText("Registrar asistencias");
@@ -273,13 +280,14 @@ public class FramePrincipal extends javax.swing.JFrame {
                 jMItemRegistrarAsistenciasActionPerformed(evt);
             }
         });
-        jMenu5.add(jMItemRegistrarAsistencias);
+        jMenuAsistencia.add(jMItemRegistrarAsistencias);
 
-        jMenuBar1.add(jMenu5);
+        jMenuBar1.add(jMenuAsistencia);
 
-        jMenu6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/info.png"))); // NOI18N
-        jMenu6.setText("MI TIENDA");
-        jMenu6.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
+        jMenuMitienda.setBackground(new java.awt.Color(255, 0, 0));
+        jMenuMitienda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/info.png"))); // NOI18N
+        jMenuMitienda.setText("MI TIENDA");
+        jMenuMitienda.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
 
         jMItemMiTienda.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
         jMItemMiTienda.setText("Gestionar tienda");
@@ -288,13 +296,14 @@ public class FramePrincipal extends javax.swing.JFrame {
                 jMItemMiTiendaActionPerformed(evt);
             }
         });
-        jMenu6.add(jMItemMiTienda);
+        jMenuMitienda.add(jMItemMiTienda);
 
-        jMenuBar1.add(jMenu6);
+        jMenuBar1.add(jMenuMitienda);
 
-        jMenu7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/cerrarSesion.png"))); // NOI18N
-        jMenu7.setText("CERRAR SESIÓN");
-        jMenu7.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
+        jMenuCerrarSesion.setBackground(new java.awt.Color(0, 0, 0));
+        jMenuCerrarSesion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/cerrarSesion.png"))); // NOI18N
+        jMenuCerrarSesion.setText("CERRAR SESIÓN");
+        jMenuCerrarSesion.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
 
         jMItemCerrar1.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
         jMItemCerrar1.setText("Cerrar Sesión");
@@ -303,9 +312,9 @@ public class FramePrincipal extends javax.swing.JFrame {
                 jMItemCerrar1ActionPerformed(evt);
             }
         });
-        jMenu7.add(jMItemCerrar1);
+        jMenuCerrarSesion.add(jMItemCerrar1);
 
-        jMenuBar1.add(jMenu7);
+        jMenuBar1.add(jMenuCerrarSesion);
 
         setJMenuBar(jMenuBar1);
 
@@ -349,10 +358,7 @@ public class FramePrincipal extends javax.swing.JFrame {
     private void jMItemCerrar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMItemCerrar1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jMItemCerrar1ActionPerformed
-    
-    
 
-    
     /**
      * @param args the command line arguments
      */
@@ -403,14 +409,14 @@ public class FramePrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMItemVerAsistencias;
     private javax.swing.JMenuItem jMItemVerPagos;
     private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
-    private javax.swing.JMenu jMenu4;
-    private javax.swing.JMenu jMenu5;
-    private javax.swing.JMenu jMenu6;
-    private javax.swing.JMenu jMenu7;
+    private javax.swing.JMenu jMenuAsistencia;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenu jMenuCerrarSesion;
+    private javax.swing.JMenu jMenuEmpleados;
+    private javax.swing.JMenu jMenuHorarios;
     private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenu jMenuMitienda;
+    private javax.swing.JMenu jMenuPagos;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
