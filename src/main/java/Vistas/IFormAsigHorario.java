@@ -181,7 +181,7 @@ public class IFormAsigHorario extends javax.swing.JInternalFrame {
         jComboBox1.setBackground(new java.awt.Color(236, 28, 36));
         jComboBox1.setFont(new java.awt.Font("STXinwei", 1, 18)); // NOI18N
         jComboBox1.setForeground(new java.awt.Color(255, 255, 255));
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar", "Cajas", "Almacen", "Limpieza", "Sala" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECCIONAR", "GERENCIA", "ADMINISTRACIÓN", "RECEPCIÓN", "CAJAS", "LIMPIEZA", "SEGURIDAD", "ALMACEN", "COMIDAS", "PISO", "ADUANAS", "FRUTAS Y VERDUDAS", "CARNICERÍA", "PANADERÍA" }));
         jComboBox1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         btnExportar.setBackground(new java.awt.Color(236, 28, 36));

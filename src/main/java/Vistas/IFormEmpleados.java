@@ -100,7 +100,7 @@ public class IFormEmpleados extends javax.swing.JInternalFrame {
 
         jComboBox1.setBackground(new java.awt.Color(236, 28, 36));
         jComboBox1.setForeground(new java.awt.Color(255, 255, 255));
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar", "Cajas", "Limpieza", "Seguridad", "Almacen", "Comidas", "Piso", "Aduanas", "Frutas y Verduras", "Carniceria", "Panaderia" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECCIONAR", "GERENCIA", "ADMINISTRACIÓN", "RECEPCIÓN", "CAJAS", "LIMPIEZA", "SEGURIDAD", "ALMACEN", "COMIDAS", "PISO", "ADUANAS", "FRUTAS Y VERDUDAS", "CARNICERÍA", "PANADERÍA" }));
 
         btnContratar.setBackground(new java.awt.Color(236, 28, 36));
         btnContratar.setFont(new java.awt.Font("STXinwei", 1, 18)); // NOI18N

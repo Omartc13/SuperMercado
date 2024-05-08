@@ -300,12 +300,21 @@
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="5">
-                <StringItem index="0" value="Seleccionar"/>
-                <StringItem index="1" value="Cajas"/>
-                <StringItem index="2" value="Almacen"/>
-                <StringItem index="3" value="Limpieza"/>
-                <StringItem index="4" value="Sala"/>
+              <StringArray count="14">
+                <StringItem index="0" value="SELECCIONAR"/>
+                <StringItem index="1" value="GERENCIA"/>
+                <StringItem index="2" value="ADMINISTRACI&#xd3;N"/>
+                <StringItem index="3" value="RECEPCI&#xd3;N"/>
+                <StringItem index="4" value="CAJAS"/>
+                <StringItem index="5" value="LIMPIEZA"/>
+                <StringItem index="6" value="SEGURIDAD"/>
+                <StringItem index="7" value="ALMACEN"/>
+                <StringItem index="8" value="COMIDAS"/>
+                <StringItem index="9" value="PISO"/>
+                <StringItem index="10" value="ADUANAS"/>
+                <StringItem index="11" value="FRUTAS Y VERDUDAS"/>
+                <StringItem index="12" value="CARNICER&#xcd;A"/>
+                <StringItem index="13" value="PANADER&#xcd;A"/>
               </StringArray>
             </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
