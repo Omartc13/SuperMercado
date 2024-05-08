@@ -4,12 +4,12 @@ package Vistas;
  *
  * @author Omar Tc
  */
-public class IFormEmpleados extends javax.swing.JInternalFrame {
+public class IFormVerHorarios extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form IFormAsigHorario
      */
-    public IFormEmpleados() {
+    public IFormVerHorarios() {
         initComponents();
     }
 

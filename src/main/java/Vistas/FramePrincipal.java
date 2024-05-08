@@ -163,10 +163,10 @@ public class FramePrincipal extends javax.swing.JFrame {
 
         jDesktopPane1.setBackground(new java.awt.Color(255, 255, 255));
         jDesktopPane1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
-        jPanel1.add(jDesktopPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(351, 20, 785, 530));
+        jPanel1.add(jDesktopPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(351, 20, 830, 530));
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/FondoLogin.png"))); // NOI18N
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 570));
 
         getContentPane().add(jPanel1, java.awt.BorderLayout.CENTER);
 
@@ -311,31 +311,44 @@ public class FramePrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jMItemAsigHorariosActionPerformed
 
     private void jMItemInfoHorariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMItemInfoHorariosActionPerformed
-        // TODO add your handling code here:
+        IFormVerHorarios IforVerHora= new IFormVerHorarios();
+        jDesktopPane1.add(IforVerHora);
+        IforVerHora.setVisible(true);
     }//GEN-LAST:event_jMItemInfoHorariosActionPerformed
 
     private void jMItemGestPagosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMItemGestPagosActionPerformed
-        // TODO add your handling code here:
+        IFormGesPagos Idges = new IFormGesPagos();
+        jDesktopPane1.add(Idges);
+        Idges.setVisible(true);
     }//GEN-LAST:event_jMItemGestPagosActionPerformed
 
     private void jMItemVerPagosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMItemVerPagosActionPerformed
-        // TODO add your handling code here:
+        IFormPagos IPagos = new IFormPagos();
+        jDesktopPane1.add(IPagos);
+        IPagos.setVisible(true);
     }//GEN-LAST:event_jMItemVerPagosActionPerformed
 
     private void jMItemGestEmpleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMItemGestEmpleActionPerformed
-        // TODO add your handling code here:
+        IFormEmpleados Iemple= new IFormEmpleados();
+        jDesktopPane1.add(Iemple);
+        Iemple.setVisible(true);
     }//GEN-LAST:event_jMItemGestEmpleActionPerformed
 
     private void jMItemVerAsistenciasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMItemVerAsistenciasActionPerformed
-        // TODO add your handling code here:
+        IFormVerAsistencia IforVerAsis= new IFormVerAsistencia();
+        jDesktopPane1.add(IforVerAsis);
+        IforVerAsis.setVisible(true);
     }//GEN-LAST:event_jMItemVerAsistenciasActionPerformed
 
     private void jMItemRegistrarAsistenciasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMItemRegistrarAsistenciasActionPerformed
-        // TODO add your handling code here:
+        FrameRegAsisEmple RegAsis = new FrameRegAsisEmple();
+        RegAsis.setVisible(true);
     }//GEN-LAST:event_jMItemRegistrarAsistenciasActionPerformed
 
     private void jMItemMiTiendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMItemMiTiendaActionPerformed
-        // TODO add your handling code here:
+        IFormInfo IInfo = new IFormInfo();
+        jDesktopPane1.add(IInfo);
+        IInfo.setVisible(true);
     }//GEN-LAST:event_jMItemMiTiendaActionPerformed
 
     private void jMItemCerrar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMItemCerrar1ActionPerformed
