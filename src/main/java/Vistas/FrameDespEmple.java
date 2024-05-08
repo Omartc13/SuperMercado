@@ -131,7 +131,7 @@ public class FrameDespEmple extends javax.swing.JFrame {
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel7.setText("TURNO:");
 
-        jButton6.setBackground(new java.awt.Color(236, 28, 36));
+        jButton6.setBackground(new java.awt.Color(255, 0, 0));
         jButton6.setFont(new java.awt.Font("STXinwei", 1, 18)); // NOI18N
         jButton6.setForeground(new java.awt.Color(255, 255, 255));
         jButton6.setText("Despedir");
