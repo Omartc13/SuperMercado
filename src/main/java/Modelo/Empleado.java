@@ -12,9 +12,10 @@ public class Empleado {
     private Date fechaIngreso;
     private String area;
     private String cargo;
+    private String tipoHorario;
 
     // Constructor
-    public Empleado(String DNI, String nombres, String apellidoP, String apellidoM, String turno, double sueldoBase, Date fechaIngreso, String area, String cargo) {
+    public Empleado(String DNI, String nombres, String apellidoP, String apellidoM, String turno, double sueldoBase, Date fechaIngreso, String area, String cargo, String tipoHorario) {
         this.DNI = DNI;
         this.nombres = nombres;
         this.apellidoP = apellidoP;
@@ -24,6 +25,7 @@ public class Empleado {
         this.fechaIngreso = fechaIngreso;
         this.area = area;
         this.cargo = cargo;
+        this.tipoHorario = tipoHorario;
     }
 
     // Getters y Setters
@@ -97,5 +99,13 @@ public class Empleado {
 
     public void setCargo(String cargo) {
         this.cargo = cargo;
+    }
+
+    public String getTipoHorario() {
+        return tipoHorario;
+    }
+
+    public void setTipoHorario(String tipoHorario) {
+        this.tipoHorario = tipoHorario;
     }
 }
