@@ -6,9 +6,6 @@ package Vistas;
 
 import javax.swing.JDesktopPane;
 import javax.swing.JFrame;
-import VistasInternas.AsignaciónHorarios;
-import javax.swing.JMenu;
-import javax.swing.JMenuItem;
 import javax.swing.UIManager;
 
 /**
