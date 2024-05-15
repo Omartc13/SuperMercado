@@ -42,7 +42,7 @@
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jComboBox1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jComboFiltrar" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Component id="jSeparator1" alignment="0" max="32767" attributes="0"/>
                           </Group>
@@ -80,7 +80,7 @@
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                       <Component id="jLabel2" pref="32" max="32767" attributes="0"/>
-                      <Component id="jComboBox1" max="32767" attributes="0"/>
+                      <Component id="jComboFiltrar" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="jScrollPane1" min="-2" pref="312" max="-2" attributes="0"/>
@@ -105,7 +105,7 @@
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
           <SubComponents>
-            <Component class="javax.swing.JTable" name="jTable1">
+            <Component class="javax.swing.JTable" name="tblEmpleados">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -150,7 +150,7 @@
             <Property name="text" type="java.lang.String" value="Filtrar:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JComboBox" name="jComboBox1">
+        <Component class="javax.swing.JComboBox" name="jComboFiltrar">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="24" green="1c" red="ec" type="rgb"/>
@@ -159,24 +159,26 @@
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="14">
+              <StringArray count="13">
                 <StringItem index="0" value="SELECCIONAR"/>
                 <StringItem index="1" value="GERENCIA"/>
-                <StringItem index="2" value="ADMINISTRACI&#xd3;N"/>
-                <StringItem index="3" value="RECEPCI&#xd3;N"/>
-                <StringItem index="4" value="CAJAS"/>
-                <StringItem index="5" value="LIMPIEZA"/>
-                <StringItem index="6" value="SEGURIDAD"/>
-                <StringItem index="7" value="ALMACEN"/>
-                <StringItem index="8" value="COMIDAS"/>
-                <StringItem index="9" value="PISO"/>
-                <StringItem index="10" value="ADUANAS"/>
-                <StringItem index="11" value="FRUTAS Y VERDUDAS"/>
-                <StringItem index="12" value="CARNICER&#xcd;A"/>
-                <StringItem index="13" value="PANADER&#xcd;A"/>
+                <StringItem index="2" value="RECEPCI&#xd3;N"/>
+                <StringItem index="3" value="CAJAS"/>
+                <StringItem index="4" value="LIMPIEZA"/>
+                <StringItem index="5" value="SEGURIDAD"/>
+                <StringItem index="6" value="ALMACEN"/>
+                <StringItem index="7" value="COMIDAS"/>
+                <StringItem index="8" value="PISO"/>
+                <StringItem index="9" value="ADUANAS"/>
+                <StringItem index="10" value="FRUTAS Y VERDURAS"/>
+                <StringItem index="11" value="CARNICER&#xcd;A"/>
+                <StringItem index="12" value="PANADER&#xcd;A"/>
               </StringArray>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="jComboFiltrarItemStateChanged"/>
+          </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
@@ -277,6 +279,9 @@
               <Border info="null"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnExportarActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel1">
           <Properties>

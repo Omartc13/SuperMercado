@@ -1,16 +1,29 @@
 package Vistas;
 
+import Modelo.Empleado;
+import com.google.protobuf.Message;
+import java.text.MessageFormat;
+import java.util.ArrayList;
+import javax.print.attribute.HashPrintRequestAttributeSet;
+import javax.print.attribute.PrintRequestAttributeSet;
+import javax.print.attribute.standard.OrientationRequested;
+import javax.swing.JOptionPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Omar Tc
  */
 public class IFormEmpleados extends javax.swing.JInternalFrame {
 
-    /**
-     * Creates new form IFormAsigHorario
-     */
+    Empleado emple;
+    DefaultTableModel modelo = new DefaultTableModel();
+    
     public IFormEmpleados() {
         initComponents();
+        establecerColumnas();
+        MostrarTAblaEmple();
     }
 
     /**
@@ -24,9 +37,9 @@ public class IFormEmpleados extends javax.swing.JInternalFrame {
 
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tblEmpleados = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        jComboFiltrar = new javax.swing.JComboBox<>();
         btnContratar = new javax.swing.JButton();
         btnDespedir = new javax.swing.JButton();
         btnEditar = new javax.swing.JButton();
@@ -41,10 +54,10 @@ public class IFormEmpleados extends javax.swing.JInternalFrame {
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
-        jTable1.setBackground(new java.awt.Color(255, 255, 255));
-        jTable1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jTable1.setForeground(new java.awt.Color(0, 0, 0));
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tblEmpleados.setBackground(new java.awt.Color(255, 255, 255));
+        tblEmpleados.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        tblEmpleados.setForeground(new java.awt.Color(0, 0, 0));
+        tblEmpleados.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
                 {null, null, null, null, null},
@@ -65,19 +78,24 @@ public class IFormEmpleados extends javax.swing.JInternalFrame {
                 "DNI", "Nombre", "Area", "Turno", "Hora"
             }
         ));
-        jTable1.setFocusable(false);
-        jTable1.setShowGrid(true);
-        jTable1.getTableHeader().setResizingAllowed(false);
-        jTable1.getTableHeader().setReorderingAllowed(false);
-        jScrollPane1.setViewportView(jTable1);
+        tblEmpleados.setFocusable(false);
+        tblEmpleados.setShowGrid(true);
+        tblEmpleados.getTableHeader().setResizingAllowed(false);
+        tblEmpleados.getTableHeader().setReorderingAllowed(false);
+        jScrollPane1.setViewportView(tblEmpleados);
 
         jLabel2.setFont(new java.awt.Font("STXinwei", 1, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(102, 102, 102));
         jLabel2.setText("Filtrar:");
 
-        jComboBox1.setBackground(new java.awt.Color(236, 28, 36));
-        jComboBox1.setForeground(new java.awt.Color(255, 255, 255));
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECCIONAR", "GERENCIA", "ADMINISTRACIÓN", "RECEPCIÓN", "CAJAS", "LIMPIEZA", "SEGURIDAD", "ALMACEN", "COMIDAS", "PISO", "ADUANAS", "FRUTAS Y VERDUDAS", "CARNICERÍA", "PANADERÍA" }));
+        jComboFiltrar.setBackground(new java.awt.Color(236, 28, 36));
+        jComboFiltrar.setForeground(new java.awt.Color(255, 255, 255));
+        jComboFiltrar.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECCIONAR", "GERENCIA", "RECEPCIÓN", "CAJAS", "LIMPIEZA", "SEGURIDAD", "ALMACEN", "COMIDAS", "PISO", "ADUANAS", "FRUTAS Y VERDURAS", "CARNICERÍA", "PANADERÍA" }));
+        jComboFiltrar.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jComboFiltrarItemStateChanged(evt);
+            }
+        });
 
         btnContratar.setBackground(new java.awt.Color(236, 28, 36));
         btnContratar.setFont(new java.awt.Font("STXinwei", 1, 18)); // NOI18N
@@ -128,6 +146,11 @@ public class IFormEmpleados extends javax.swing.JInternalFrame {
         btnExportar.setForeground(new java.awt.Color(255, 255, 255));
         btnExportar.setText("Exportar");
         btnExportar.setBorder(null);
+        btnExportar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExportarActionPerformed(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("STXinwei", 1, 48)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(102, 102, 102));
@@ -148,7 +171,7 @@ public class IFormEmpleados extends javax.swing.JInternalFrame {
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(jLabel2)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jComboFiltrar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jSeparator1))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
@@ -177,7 +200,7 @@ public class IFormEmpleados extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE)
-                    .addComponent(jComboBox1))
+                    .addComponent(jComboFiltrar))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 312, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -215,6 +238,99 @@ public class IFormEmpleados extends javax.swing.JInternalFrame {
         bus.setVisible(true);
     }//GEN-LAST:event_btnBuscarActionPerformed
 
+    private void jComboFiltrarItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboFiltrarItemStateChanged
+        
+        if (jComboFiltrar.getSelectedIndex()!=0) {
+            String Are= jComboFiltrar.getSelectedItem().toString();
+            eliminarElementosTabla();
+            MostrarTAblaEmplePorArea(Are);
+        }else{
+            MostrarTAblaEmple();
+        }
+    }//GEN-LAST:event_jComboFiltrarItemStateChanged
+
+    private void btnExportarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExportarActionPerformed
+        
+        MessageFormat header = new MessageFormat("Horarios");
+        MessageFormat footer = new MessageFormat("VIZCA BARCELONA");
+        
+        try{
+            PrintRequestAttributeSet set = new HashPrintRequestAttributeSet();
+            set.add(OrientationRequested.PORTRAIT);
+            tblEmpleados.print(JTable.PrintMode.FIT_WIDTH,header,footer,true, set,true);
+            JOptionPane.showMessageDialog(null, "\nPrinted Succesfully");
+        }catch(java.awt.print.PrinterException ex){
+            JOptionPane.showMessageDialog(null, "\nFailed");
+        }
+        
+        
+        
+        
+    }//GEN-LAST:event_btnExportarActionPerformed
+
+    private void establecerColumnas(){
+        modelo.addColumn("DNI");
+        modelo.addColumn("NOMBRES");
+        modelo.addColumn("APELLIDO P");
+        modelo.addColumn("APELLIDO M");
+        modelo.addColumn("TURNO");
+        modelo.addColumn("SUELDO B");
+        modelo.addColumn("FECHA I");
+        modelo.addColumn("AREA");
+        modelo.addColumn("CARGO");
+        tblEmpleados.setModel(modelo);
+    }
+    
+    public void eliminarElementosTabla(){
+        for(int i=tblEmpleados.getRowCount()-1;i>=0;i--){
+            modelo.removeRow(i);
+        }
+    }
+    
+    public void MostrarTAblaEmple(){
+        
+        emple = new Empleado();
+        ArrayList<Empleado> listaEmple = new ArrayList<>();
+        listaEmple = emple.MostrarEmple();
+        
+        for (int i = 0; i < listaEmple.size(); i++) {
+            Object[] data ={
+                listaEmple.get(i).getDNI(),
+                listaEmple.get(i).getNombres(),
+                listaEmple.get(i).getApellidoP(),
+                listaEmple.get(i).getApellidoM(),
+                listaEmple.get(i).getTurno(),
+                listaEmple.get(i).getSueldoBase(),
+                listaEmple.get(i).getFechaIngreso(),
+                listaEmple.get(i).getArea(),
+                listaEmple.get(i).getCargo()
+            };
+            modelo.addRow(data);
+        }tblEmpleados.setModel(modelo);
+    }
+    
+    public void MostrarTAblaEmplePorArea(String area){
+        
+        emple = new Empleado();
+        ArrayList<Empleado> listaEmple = new ArrayList<>();
+        listaEmple = emple.MostrarEmpleSegunArea(area);
+        
+        for (int i = 0; i < listaEmple.size(); i++) {
+            Object[] data ={
+                listaEmple.get(i).getDNI(),
+                listaEmple.get(i).getNombres(),
+                listaEmple.get(i).getApellidoP(),
+                listaEmple.get(i).getApellidoM(),
+                listaEmple.get(i).getTurno(),
+                listaEmple.get(i).getSueldoBase(),
+                listaEmple.get(i).getFechaIngreso(),
+                listaEmple.get(i).getArea(),
+                listaEmple.get(i).getCargo()
+            };
+            modelo.addRow(data);
+        }tblEmpleados.setModel(modelo);
+    }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBuscar;
@@ -222,12 +338,12 @@ public class IFormEmpleados extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnDespedir;
     private javax.swing.JButton btnEditar;
     private javax.swing.JButton btnExportar;
-    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<String> jComboFiltrar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable tblEmpleados;
     // End of variables declaration//GEN-END:variables
 }
