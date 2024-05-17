@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 public class Empleado {
     
@@ -29,10 +30,10 @@ public class Empleado {
     private Date fechaIngreso;
     private String area;
     private String cargo;
-    private String tipoHorario;
+    
 
     // Constructor
-    public Empleado(String DNI, String nombres, String apellidoP, String apellidoM, String turno, double sueldoBase, Date fechaIngreso, String area, String cargo, String tipoHorario) {
+    public Empleado(String DNI, String nombres, String apellidoP, String apellidoM, String turno, double sueldoBase, Date fechaIngreso, String area, String cargo) {
         this.DNI = DNI;
         this.nombres = nombres;
         this.apellidoP = apellidoP;
@@ -42,7 +43,7 @@ public class Empleado {
         this.fechaIngreso = fechaIngreso;
         this.area = area;
         this.cargo = cargo;
-        this.tipoHorario = tipoHorario;
+        
     }
 
     public Empleado() {
@@ -121,14 +122,7 @@ public class Empleado {
         this.cargo = cargo;
     }
 
-    public String getTipoHorario() {
-        return tipoHorario;
-    }
-
-    public void setTipoHorario(String tipoHorario) {
-        this.tipoHorario = tipoHorario;
-    }
-    
+        
     public static String fechaActual(){
         
         Date fecha = new Date();
@@ -287,6 +281,106 @@ public class Empleado {
         }
         return lista;
     }
+    
+    public ArrayList<Horario> obtenerHorariosPorAreaYFechas(String area, String fechaInicio, String fechaFin) {
+    ArrayList<Horario> listaHorarios = new ArrayList<>();
+    
+    try {
+        String sql = "SELECT trabajador.DNI, trabajador.Nombres, trabajador.ApellidoP, trabajador.ApellidoM, horario.Turno AS TurnoHorario, trabajador.SueldoBase, trabajador.FechaIngreso, trabajador.Area, trabajador.Cargo, horario.Fecha " +
+                     "FROM trabajador INNER JOIN horario ON trabajador.DNI = horario.DNI " +
+                     "WHERE trabajador.Area = ? AND horario.Fecha BETWEEN ? AND ?";
+        
+        con = cn.conectar();
+        ps = con.prepareStatement(sql);
+        ps.setString(1, area);
+        ps.setString(2, fechaInicio);
+        ps.setString(3, fechaFin);
+        
+        rs = ps.executeQuery();
+        
+        while (rs.next()) {
+            String dni = rs.getString("DNI");
+            String nombres = rs.getString("Nombres");
+            String apellidoP = rs.getString("ApellidoP");
+            String apellidoM = rs.getString("ApellidoM");
+            double sueldoBase = rs.getDouble("SueldoBase");
+            Date fechaIngreso = rs.getDate("FechaIngreso");
+            String cargo = rs.getString("Cargo");
+            
+            Empleado empleado = new Empleado(dni, nombres, apellidoP, apellidoM, "", sueldoBase, fechaIngreso, area, cargo);
+            Date fechaHorario = rs.getDate("Fecha");
+            String turnoHorario = rs.getString("TurnoHorario");
+            
+            Horario horario = new Horario(empleado, fechaHorario, turnoHorario);
+            listaHorarios.add(horario);
+        }
+    } catch (SQLException ex) {
+        ex.printStackTrace();
+        // Manejar la excepción apropiadamente
+    } finally {
+        try {
+            if (rs != null) rs.close();
+            if (ps != null) ps.close();
+            if (con != null) con.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+    
+    return listaHorarios;
+}
+
+    
+    public ArrayList<Horario> obtenerHorariosPorAreaYFecha(String area, String fecha) {
+    ArrayList<Horario> listaHorarios = new ArrayList<>();
+    
+    try {
+        String sql = "SELECT trabajador.DNI, trabajador.Nombres, trabajador.ApellidoP, trabajador.ApellidoM, horario.Turno AS Turno, trabajador.SueldoBase, trabajador.FechaIngreso, trabajador.Area, trabajador.Cargo, horario.Fecha " +
+             "FROM trabajador INNER JOIN horario ON trabajador.DNI = horario.DNI " +
+             "WHERE trabajador.Area = ? AND horario.Fecha = ?";
+        
+        con = cn.conectar();
+        ps = con.prepareStatement(sql);
+        ps.setString(1, area);
+        ps.setString(2, fecha);
+        
+        rs = ps.executeQuery();
+        
+        while (rs.next()) {
+            String dni = rs.getString("DNI");
+            String nombres = rs.getString("Nombres");
+            String apellidoP = rs.getString("ApellidoP");
+            String apellidoM = rs.getString("ApellidoM");
+            String turnoEmpleado = rs.getString("Turno");
+            double sueldoBase = rs.getDouble("SueldoBase");
+            Date fechaIngreso = rs.getDate("FechaIngreso");
+            String cargo = rs.getString("Cargo");
+            
+            
+            Empleado empleado = new Empleado(dni, nombres, apellidoP, apellidoM, turnoEmpleado, sueldoBase, fechaIngreso, area, cargo);
+            Date fechaHorario = rs.getDate("Fecha");
+            String turnoHorario = rs.getString("Turno");
+            
+            Horario horario = new Horario(empleado, fechaHorario, turnoHorario);
+            listaHorarios.add(horario);
+        }
+                
+    } catch (SQLException ex) {
+        ex.printStackTrace();
+        // Manejar la excepción apropiadamente
+    } finally {
+        try {
+            if (rs != null) rs.close();
+            if (ps != null) ps.close();
+            if (con != null) con.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+    
+    return listaHorarios;
+}
+
     
     
     public boolean validarAdmin(String usuario, String contrasena) {

@@ -8,16 +8,24 @@ import java.util.Date;
  */
 public class Horario {
     
-    String DNI;
+    Empleado empleado;
     Date fecha;
     String turno;
 
-    public String getDNI() {
-        return DNI;
+    public Horario(Empleado empleado, Date fecha, String turno) {
+        this.empleado = empleado;
+        this.fecha = fecha;
+        this.turno = turno;
     }
 
-    public void setDNI(String DNI) {
-        this.DNI = DNI;
+    
+    
+    public Empleado getEmpleado() {
+        return empleado;
+    }
+
+    public void setEmpleado(Empleado empleado) {
+        this.empleado = empleado;
     }
 
     public Date getFecha() {
@@ -35,10 +43,5 @@ public class Horario {
     public void setTurno(String turno) {
         this.turno = turno;
     }
-    
-    
-    
-    
-    
     
 }

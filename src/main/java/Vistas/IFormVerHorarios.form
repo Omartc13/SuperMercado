@@ -40,19 +40,24 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                  <Component id="btnVer" min="-2" pref="95" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Component id="btnExportar" min="-2" pref="95" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <Group type="103" groupAlignment="1" max="-2" attributes="0">
                                       <Component id="jSeparator1" alignment="0" max="32767" attributes="0"/>
                                       <Component id="jLabel3" max="32767" attributes="0"/>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="jComboBox1" min="-2" max="-2" attributes="0"/>
-                                      </Group>
                                   </Group>
                                   <EmptySpace pref="481" max="32767" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="jComboAreas" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="jDateFechaHor" min="-2" pref="157" max="-2" attributes="0"/>
+                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -75,12 +80,16 @@
                   <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="jLabel2" min="-2" pref="26" max="-2" attributes="0"/>
-                      <Component id="jComboBox1" min="-2" max="-2" attributes="0"/>
+                      <Component id="jComboAreas" min="-2" max="-2" attributes="0"/>
+                      <Component id="jDateFechaHor" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="jScrollPane1" min="-2" pref="318" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Component id="btnExportar" pref="35" max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="btnExportar" alignment="3" pref="35" max="32767" attributes="0"/>
+                      <Component id="btnVer" alignment="3" pref="35" max="32767" attributes="0"/>
+                  </Group>
                   <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -94,7 +103,7 @@
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
           <SubComponents>
-            <Component class="javax.swing.JTable" name="jTable1">
+            <Component class="javax.swing.JTable" name="tblVerHorarios">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -139,7 +148,7 @@
             <Property name="text" type="java.lang.String" value="Filtrar:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JComboBox" name="jComboBox1">
+        <Component class="javax.swing.JComboBox" name="jComboAreas">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="24" green="1c" red="ec" type="rgb"/>
@@ -148,21 +157,20 @@
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="14">
+              <StringArray count="13">
                 <StringItem index="0" value="SELECCIONAR"/>
                 <StringItem index="1" value="GERENCIA"/>
-                <StringItem index="2" value="ADMINISTRACI&#xd3;N"/>
-                <StringItem index="3" value="RECEPCI&#xd3;N"/>
-                <StringItem index="4" value="CAJAS"/>
-                <StringItem index="5" value="LIMPIEZA"/>
-                <StringItem index="6" value="SEGURIDAD"/>
-                <StringItem index="7" value="ALMACEN"/>
-                <StringItem index="8" value="COMIDAS"/>
-                <StringItem index="9" value="PISO"/>
-                <StringItem index="10" value="ADUANAS"/>
-                <StringItem index="11" value="FRUTAS Y VERDUDAS"/>
-                <StringItem index="12" value="CARNICER&#xcd;A"/>
-                <StringItem index="13" value="PANADER&#xcd;A"/>
+                <StringItem index="2" value="RECEPCI&#xd3;N"/>
+                <StringItem index="3" value="CAJAS"/>
+                <StringItem index="4" value="LIMPIEZA"/>
+                <StringItem index="5" value="SEGURIDAD"/>
+                <StringItem index="6" value="ALMACEN"/>
+                <StringItem index="7" value="COMIDAS"/>
+                <StringItem index="8" value="PISO"/>
+                <StringItem index="9" value="ADUANAS"/>
+                <StringItem index="10" value="FRUTAS Y VERDURAS"/>
+                <StringItem index="11" value="CARNICER&#xcd;A"/>
+                <StringItem index="12" value="PANADER&#xcd;A"/>
               </StringArray>
             </Property>
           </Properties>
@@ -188,6 +196,9 @@
               </Border>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnExportarActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel3">
           <Properties>
@@ -206,6 +217,30 @@
               <Color blue="66" green="66" red="66" type="rgb"/>
             </Property>
           </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="btnVer">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="24" green="1c" red="ec" type="rgb"/>
+            </Property>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="STXinwei" size="18" style="1"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Ver"/>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+                <LineBorder roundedCorners="true" thickness="2"/>
+              </Border>
+            </Property>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnVerActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="com.toedter.calendar.JDateChooser" name="jDateFechaHor">
         </Component>
       </SubComponents>
     </Container>

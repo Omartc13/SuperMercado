@@ -101,48 +101,6 @@ public class AsigHora {
         return areas;
     }
     
-    public ArrayList<Horario> MostrarEmple(String area, String fecha) {
-        
-        ArrayList<Horario> lista = new ArrayList<>();
-        Empleado emple;
-        
-        try {
-            String sql = "SELECT trabajador.DNI, trabajador.Nombres, trabajador.ApellidoP, trabajador.Turno, trabajador.Area, horario.Fecha FROM trabajador "
-                    + "INNER JOIN horario ON trabajador.DNI = horario.DNI WHERE trabajador.Area ='"+area+"' AND horario.Fecha ='"+fecha+"'";
-            con = cn.conectar();
-            ps = con.prepareStatement(sql);
-            rs = ps.executeQuery();
-            
-            while (rs.next()) {                
-                emple = new Empleado();
-                
-                emple.setDNI(rs.getString("DNI"));
-                emple.setNombres(rs.getString("Nombres"));
-                emple.setApellidoP(rs.getString("ApellidoP"));
-                emple.setApellidoM(rs.getString("ApellidoM"));
-                emple.setTurno(rs.getString("Turno"));
-                emple.setSueldoBase(rs.getDouble("SueldoBase"));
-                emple.setFechaIngreso(rs.getDate("FechaIngreso"));
-                emple.setArea(rs.getString("Area"));
-                emple.setCargo(rs.getString("Cargo"));
-                emple.setFechaIngreso(rs.getDate("Fecha"));
-                //lista.add(emple);
-            }
-        } catch (SQLException ex) {
-            Logger.getLogger(Empleado.class.getName()).log(Level.SEVERE, null, ex);
-        } finally {
-            try {
-                if (rs != null) rs.close();
-                if (ps != null) ps.close();
-                if (con != null) con.close();
-            } catch (SQLException e) {
-                Logger.getLogger(Empleado.class.getName()).log(Level.SEVERE, null, e);
-            }
-        }
-        return lista;
-    }
-    
-        
     public static String fechaActual(){
         Date fecha = new Date();
         SimpleDateFormat formatoFecha = new SimpleDateFormat("YYYY-MM-dd");
