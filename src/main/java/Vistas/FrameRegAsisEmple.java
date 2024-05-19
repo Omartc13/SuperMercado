@@ -1,17 +1,20 @@
 package Vistas;
 
 import Modelo.Asistencia;
+import java.sql.Date;
+import java.sql.SQLException;
+import java.sql.Time;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
+
 
 /**
  *
  * @author Omar Tc
  */
 public class FrameRegAsisEmple extends javax.swing.JFrame {
-
-    Asistencia asi= new Asistencia();
 
     public FrameRegAsisEmple() {
         initComponents();
@@ -115,64 +118,15 @@ public class FrameRegAsisEmple extends javax.swing.JFrame {
 
     private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
 
-        int dni = Integer.parseInt(txtDNI.getText());
-        if (!asi.ValidadDNI(dni)) {
-            JOptionPane.showMessageDialog(null, "DNI no válido. No registrado en la tabla de trabajadores.");
-            return;
-        }
-
-        // Obtener la hora actual
-        LocalTime horaLlegada = LocalTime.now();
-
-        // Determinar la puntualidad
-        String puntualidad = determinarPuntualidad(horaLlegada);
-
-        // Obtener la fecha actual
-        LocalDate fecha = LocalDate.now();
-
-        // Registrar la asistencia
-        asi.registrarAsistencia(dni, puntualidad, fecha, horaLlegada);
-
-        JOptionPane.showMessageDialog(null, "Asistencia registrada con éxito.");
-
+        Asistencia asi = new Asistencia();
+        asi.registrarAsistencia(Integer.parseInt(txtDNI.getText()));
+        
+        
     }//GEN-LAST:event_btnAceptarActionPerformed
 
     private void txtDNIMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtDNIMousePressed
         txtDNI.setText("");
     }//GEN-LAST:event_txtDNIMousePressed
-
-    private String determinarPuntualidad(LocalTime horaLlegada) {
-        // Definimos los horarios de inicio de turno
-        LocalTime inicioManana = LocalTime.of(5, 0);
-        LocalTime inicioTarde = LocalTime.of(11, 0);
-        LocalTime inicioNoche = LocalTime.of(17, 0);
-
-        // Determinamos el turno basado en la hora de llegada
-        LocalTime inicioTurno;
-        if (horaLlegada.isBefore(inicioTarde)) {
-            inicioTurno = inicioManana;
-        } else if (horaLlegada.isBefore(inicioNoche)) {
-            inicioTurno = inicioTarde;
-        } else {
-            inicioTurno = inicioNoche;
-        }
-
-        // Calculamos el tiempo de diferencia en minutos entre la hora de llegada y el inicio del turno
-        long minutosDiferencia = horaLlegada.until(inicioTurno, java.time.temporal.ChronoUnit.MINUTES);
-
-        // Determinamos el estado de puntualidad
-        if (minutosDiferencia >= -15 && minutosDiferencia < 0) {
-            return "MUY PUNTUAL";
-        } else if (minutosDiferencia >= 0 && minutosDiferencia <= 10) {
-            return "PUNTUAL";
-        } else {
-            return "TARDANZA";
-        }
-    }
-
-    public void GuardarAsistencia() {
-
-    }
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
