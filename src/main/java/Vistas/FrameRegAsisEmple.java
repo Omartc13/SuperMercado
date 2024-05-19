@@ -1,8 +1,9 @@
 package Vistas;
 
-import javax.swing.Icon;
-import javax.swing.ImageIcon;
-import javax.swing.JLabel;
+import Modelo.Asistencia;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -10,27 +11,24 @@ import javax.swing.JLabel;
  */
 public class FrameRegAsisEmple extends javax.swing.JFrame {
 
-    private ImageIcon imagen;
-    private Icon icono;
-    
+    Asistencia asi= new Asistencia();
+
     public FrameRegAsisEmple() {
         initComponents();
-        
-        
-        
+        setLocationRelativeTo(null);
+
     }
 
-    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
-        jTextField1 = new javax.swing.JTextField();
+        txtDNI = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
-        jButton6 = new javax.swing.JButton();
+        btnAceptar = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -42,12 +40,17 @@ public class FrameRegAsisEmple extends javax.swing.JFrame {
         jPanel3.setBackground(new java.awt.Color(255,255,255,200));
         jPanel3.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 0, 0), 1, true));
 
-        jTextField1.setBackground(new java.awt.Color(255,255,255,200));
-        jTextField1.setFont(new java.awt.Font("STXinwei", 1, 18)); // NOI18N
-        jTextField1.setForeground(new java.awt.Color(255, 0, 0));
-        jTextField1.setText("DNI");
-        jTextField1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 0, 0), 2));
-        jTextField1.setOpaque(true);
+        txtDNI.setBackground(new java.awt.Color(255,255,255,200));
+        txtDNI.setFont(new java.awt.Font("STXinwei", 1, 18)); // NOI18N
+        txtDNI.setForeground(new java.awt.Color(255, 0, 0));
+        txtDNI.setText("DNI");
+        txtDNI.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 0, 0), 2));
+        txtDNI.setOpaque(true);
+        txtDNI.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                txtDNIMousePressed(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("STXinwei", 1, 48)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 0, 0));
@@ -56,11 +59,16 @@ public class FrameRegAsisEmple extends javax.swing.JFrame {
 
         jSeparator1.setForeground(new java.awt.Color(255, 0, 0));
 
-        jButton6.setBackground(new java.awt.Color(255, 0, 0));
-        jButton6.setFont(new java.awt.Font("STXinwei", 1, 18)); // NOI18N
-        jButton6.setForeground(new java.awt.Color(255, 255, 255));
-        jButton6.setText("Aceptar");
-        jButton6.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
+        btnAceptar.setBackground(new java.awt.Color(255, 0, 0));
+        btnAceptar.setFont(new java.awt.Font("STXinwei", 1, 18)); // NOI18N
+        btnAceptar.setForeground(new java.awt.Color(255, 255, 255));
+        btnAceptar.setText("Aceptar");
+        btnAceptar.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
+        btnAceptar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAceptarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -71,10 +79,10 @@ public class FrameRegAsisEmple extends javax.swing.JFrame {
                 .addContainerGap(63, Short.MAX_VALUE)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                        .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnAceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(156, 156, 156))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 312, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtDNI, javax.swing.GroupLayout.PREFERRED_SIZE, 312, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(53, 53, 53))))
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(102, 102, 102)
@@ -89,9 +97,9 @@ public class FrameRegAsisEmple extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtDNI, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30)
-                .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnAceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30))
         );
 
@@ -105,7 +113,67 @@ public class FrameRegAsisEmple extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    
+    private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
+
+        int dni = Integer.parseInt(txtDNI.getText());
+        if (!asi.ValidadDNI(dni)) {
+            JOptionPane.showMessageDialog(null, "DNI no válido. No registrado en la tabla de trabajadores.");
+            return;
+        }
+
+        // Obtener la hora actual
+        LocalTime horaLlegada = LocalTime.now();
+
+        // Determinar la puntualidad
+        String puntualidad = determinarPuntualidad(horaLlegada);
+
+        // Obtener la fecha actual
+        LocalDate fecha = LocalDate.now();
+
+        // Registrar la asistencia
+        asi.registrarAsistencia(dni, puntualidad, fecha, horaLlegada);
+
+        JOptionPane.showMessageDialog(null, "Asistencia registrada con éxito.");
+
+    }//GEN-LAST:event_btnAceptarActionPerformed
+
+    private void txtDNIMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtDNIMousePressed
+        txtDNI.setText("");
+    }//GEN-LAST:event_txtDNIMousePressed
+
+    private String determinarPuntualidad(LocalTime horaLlegada) {
+        // Definimos los horarios de inicio de turno
+        LocalTime inicioManana = LocalTime.of(5, 0);
+        LocalTime inicioTarde = LocalTime.of(11, 0);
+        LocalTime inicioNoche = LocalTime.of(17, 0);
+
+        // Determinamos el turno basado en la hora de llegada
+        LocalTime inicioTurno;
+        if (horaLlegada.isBefore(inicioTarde)) {
+            inicioTurno = inicioManana;
+        } else if (horaLlegada.isBefore(inicioNoche)) {
+            inicioTurno = inicioTarde;
+        } else {
+            inicioTurno = inicioNoche;
+        }
+
+        // Calculamos el tiempo de diferencia en minutos entre la hora de llegada y el inicio del turno
+        long minutosDiferencia = horaLlegada.until(inicioTurno, java.time.temporal.ChronoUnit.MINUTES);
+
+        // Determinamos el estado de puntualidad
+        if (minutosDiferencia >= -15 && minutosDiferencia < 0) {
+            return "MUY PUNTUAL";
+        } else if (minutosDiferencia >= 0 && minutosDiferencia <= 10) {
+            return "PUNTUAL";
+        } else {
+            return "TARDANZA";
+        }
+    }
+
+    public void GuardarAsistencia() {
+
+    }
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -144,23 +212,15 @@ public class FrameRegAsisEmple extends javax.swing.JFrame {
             }
         });
     }
-    
-    private void pintarImagen(JLabel lbl, String ruta){
-        this.imagen = new ImageIcon(ruta);
-        this.icono= new ImageIcon(
-                this.imagen.getImage().getScaledInstance(WIDTH, HEIGHT, WIDTH)
-        );
-        
-    }
-    
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton6;
+    private javax.swing.JButton btnAceptar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField txtDNI;
     // End of variables declaration//GEN-END:variables
 }
