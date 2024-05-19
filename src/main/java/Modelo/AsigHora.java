@@ -40,9 +40,9 @@ public class AsigHora {
             // Iterar sobre cada día en el rango de fechas
             for (LocalDate fecha = fechaInicio; !fecha.isAfter(fechaFin); fecha = fecha.plusDays(1)) {
                 String fechaStr = fecha.format(dateFormatter);
+                int diaSemana = fecha.getDayOfWeek().getValue(); // Lunes = 1, Domingo = 7
 
                 for (String area : areas) {
-                    //Prepara para cada area
                     try (PreparedStatement psEmpleados = con.prepareStatement(sqlEmpleados)) {
                         psEmpleados.setString(1, area);
                         try (ResultSet rsEmpleados = psEmpleados.executeQuery()) {
@@ -51,9 +51,8 @@ public class AsigHora {
                                 empleados.add(rsEmpleados.getInt("DNI"));
                             }
 
-                            // Dividir los empleados por turnos
-                            int numEmpleados = empleados.size();//Obtiene el numero de empleados por area
-                            int numTurnos = turnos.length;//Nro de Turnos
+                            int numEmpleados = empleados.size();
+                            int numTurnos = turnos.length;
                             int empleadosPorTurno = numEmpleados / numTurnos;
                             int empleadosRestantes = numEmpleados % numTurnos;
 
@@ -61,12 +60,17 @@ public class AsigHora {
                                 int empleadoIndex = 0;
                                 for (int i = 0; i < numTurnos; i++) {
                                     for (int j = 0; j < empleadosPorTurno + (i < empleadosRestantes ? 1 : 0); j++) {
-                                        int dni = empleados.get(empleadoIndex++);
-                                        psAsiTurno.setInt(1, dni);
-                                        psAsiTurno.setString(2, fechaStr);
-                                        psAsiTurno.setString(3, turnos[i]);
-                                        psAsiTurno.setInt(4, 1); // id Tienda 1
-                                        psAsiTurno.executeUpdate();
+                                        int dni = empleados.get(empleadoIndex);
+                                        int diaDescanso = (empleadoIndex % 7) + 1;
+
+                                        if (diaSemana != diaDescanso) {
+                                            psAsiTurno.setInt(1, dni);
+                                            psAsiTurno.setString(2, fechaStr);
+                                            psAsiTurno.setString(3, turnos[i]);
+                                            psAsiTurno.setInt(4, 1); // id Tienda 1
+                                            psAsiTurno.executeUpdate();
+                                        }
+                                        empleadoIndex++;
                                     }
                                 }
                             }
@@ -74,32 +78,40 @@ public class AsigHora {
                     }
                 }
             }
-        } catch (SQLException e) {
-            System.out.println("Algo pasó papu: " + e.getMessage());
+        } catch (SQLException ex) {
+            Logger.getLogger(AsigHora.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
-            // Cerrar la conexión
-            if (con != null) try { con.close(); } catch (SQLException e) { e.printStackTrace(); }
+            if (rs != null) rs.close();
+            if (ps != null) ps.close();
+            if (con != null) con.close();
         }
     }
 
-    
-    // Método para obtener todas las áreas
-    private List<String> obtenerAreas() throws SQLException {
+    // Método para obtener todas las áreas de la tabla 'trabajador'
+    private List<String> obtenerAreas() {
         List<String> areas = new ArrayList<>();
-        String sql = "SELECT DISTINCT area FROM trabajador";
-        try (
-            Connection con = cn.conectar();
-            Statement st = con.createStatement();
-            ResultSet rs = st.executeQuery(sql)
-        ) {
+        try {
+            con = cn.conectar();
+            String sql = "SELECT DISTINCT area FROM trabajador";
+            ps = con.prepareStatement(sql);
+            rs = ps.executeQuery();
             while (rs.next()) {
                 areas.add(rs.getString("area"));
             }
-        } catch (SQLException e) {
-            System.out.println("Error al obtener áreas: " + e.getMessage());
+        } catch (SQLException ex) {
+            Logger.getLogger(AsigHora.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            try {
+                if (rs != null) rs.close();
+                if (ps != null) ps.close();
+                if (con != null) con.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(AsigHora.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
         return areas;
-    }
+    
+    } 
     
     public static String fechaActual(){
         Date fecha = new Date();

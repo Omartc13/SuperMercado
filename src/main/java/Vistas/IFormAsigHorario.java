@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -35,6 +36,7 @@ public class IFormAsigHorario extends javax.swing.JInternalFrame {
     public IFormAsigHorario() {
         initComponents();
         establecerColumnas();
+        tblVerHorarios.setModel(model);
     }
 
     /**
@@ -263,17 +265,49 @@ public class IFormAsigHorario extends javax.swing.JInternalFrame {
 
     private void btnAsignarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAsignarActionPerformed
         
-        SimpleDateFormat formatoFec = new SimpleDateFormat("YYYY-MM-dd");
-        String fechaini =formatoFec.format(jDateFechaInicio.getDate());
-        System.out.println(fechaini);
-        String fechafin =formatoFec.format(jDateFechaFin.getDate());
-        System.out.println(fechafin);
-        hora= new AsigHora();
-        try {
-            hora.AsignarTurnos(fechaini, fechafin);
-        } catch (SQLException ex) {
-            Logger.getLogger(IFormAsigHorario.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        Date fechaInicio = jDateFechaInicio.getDate();
+  Date fechaFin = jDateFechaFin.getDate();
+
+  // Verificar si las fechas son nulas
+  if (fechaInicio == null || fechaFin == null) {
+    JOptionPane.showMessageDialog(rootPane, "Por favor, seleccione las fechas de inicio y fin.");
+    return;
+  }
+
+  // Crear instancias de Calendar para las fechas seleccionadas
+  Calendar calInicio = Calendar.getInstance();
+  calInicio.setTime(fechaInicio);
+  Calendar calFin = Calendar.getInstance();
+  calFin.setTime(fechaFin);
+
+  // Verificar si la fecha de inicio es un lunes y la fecha de fin es un domingo
+  if (calInicio.get(Calendar.DAY_OF_WEEK) != Calendar.MONDAY || calFin.get(Calendar.DAY_OF_WEEK) != Calendar.SUNDAY) {
+    JOptionPane.showMessageDialog(rootPane, "Se debe seleccionar un Lunes como fecha de inicio y un Domingo como fecha de fin para generar horarios.");
+    return;
+  }
+
+  // Verificar si hay exactamente 7 días de diferencia
+  long diff = calFin.getTimeInMillis() - calInicio.getTimeInMillis();
+  long daysDiff = diff / (24 * 60 * 60 * 1000);
+  if (daysDiff != 6) { // Deben ser exactamente 7 días de diferencia entre lunes y domingo (6 días en total)
+    JOptionPane.showMessageDialog(rootPane, "El rango de fechas debe cubrir exactamente 7 días (de lunes a domingo de la misma semana).");
+    return;
+  }
+
+  SimpleDateFormat formatoFec = new SimpleDateFormat("yyyy-MM-dd");
+  String fechaini = formatoFec.format(fechaInicio);
+  System.out.println(fechaini);
+  String fechafin = formatoFec.format(fechaFin);
+  System.out.println(fechafin);
+
+  hora = new AsigHora();
+  try {
+    hora.AsignarTurnos(fechaini, fechafin);
+    JOptionPane.showMessageDialog(rootPane, "Horario asignado correctamente");
+  } catch (SQLException ex) {
+    Logger.getLogger(IFormAsigHorario.class.getName()).log(Level.SEVERE, null, ex);
+   
+     } 
     }//GEN-LAST:event_btnAsignarActionPerformed
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
