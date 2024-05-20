@@ -19,7 +19,7 @@ public class FrameRegAsisEmple extends javax.swing.JFrame {
     public FrameRegAsisEmple() {
         initComponents();
         setLocationRelativeTo(null);
-
+        setResizable(false);
     }
 
     @SuppressWarnings("unchecked")

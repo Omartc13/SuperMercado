@@ -77,7 +77,7 @@ public class Boleta {
 
         try {
             con = ConexionBD.conectar();
-            String sql = "SELECT DNI, SueldoBase, COUNT(CASE WHEN Puntualidad = 'MUY PUNTUAL' THEN 1 END) AS Puntualidad_MUY_PUNTUAL, COUNT(CASE WHEN Puntualidad = 'TARDANZA' THEN 1 END) AS Puntualidad_TARDANZA FROM Asistencia WHERE Fecha >= ? AND Fecha <= ? GROUP BY DNI, SueldoBase";
+            String sql = "SELECT DNI, SueldoBase, COUNT(CASE WHEN Puntualidad = 'MUY PUNTUAL' THEN 1 END) AS Puntualidad_MUY_PUNTUAL, COUNT(CASE WHEN Puntualidad = 'TARDANZA' THEN 1 END) AS Puntualidad_TARDANZA FROM asistencia WHERE Fecha >= ? AND Fecha <= ? GROUP BY DNI, SueldoBase";
             ps = con.prepareStatement(sql);
             ps.setString(1, fechaInicio);
             ps.setString(2, fechaFinal);

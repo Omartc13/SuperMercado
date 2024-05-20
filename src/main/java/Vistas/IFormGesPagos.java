@@ -271,7 +271,7 @@ public class IFormGesPagos extends javax.swing.JInternalFrame {
             boleta.calcularSueldoBrutoYRegistrar(fechaInicioStr, fechaFinalStr);
             JOptionPane.showMessageDialog(rootPane, "Sueldo bruto calculado y registrado correctamente.");
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(rootPane, "Error al calcular el sueldo bruto y registrar la boleta: " + e.getMessage());
+            JOptionPane.showMessageDialog(rootPane, "XD: " + e.getMessage());
         }
     }//GEN-LAST:event_btnAsignarActionPerformed
 
