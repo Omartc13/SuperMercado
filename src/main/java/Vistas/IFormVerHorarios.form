@@ -117,7 +117,7 @@
                   <Color blue="0" green="0" red="0" type="rgb"/>
                 </Property>
                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                  <Table columnCount="5" rowCount="14">
+                  <Table columnCount="5" rowCount="19">
                     <Column editable="true" title="DNI" type="java.lang.Object"/>
                     <Column editable="true" title="Nombre" type="java.lang.Object"/>
                     <Column editable="true" title="Area" type="java.lang.Object"/>
@@ -126,7 +126,33 @@
                   </Table>
                 </Property>
                 <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
-                  <TableColumnModel selectionModel="0"/>
+                  <TableColumnModel selectionModel="0">
+                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                      <Title/>
+                      <Editor/>
+                      <Renderer/>
+                    </Column>
+                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                      <Title/>
+                      <Editor/>
+                      <Renderer/>
+                    </Column>
+                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                      <Title/>
+                      <Editor/>
+                      <Renderer/>
+                    </Column>
+                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                      <Title/>
+                      <Editor/>
+                      <Renderer/>
+                    </Column>
+                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                      <Title/>
+                      <Editor/>
+                      <Renderer/>
+                    </Column>
+                  </TableColumnModel>
                 </Property>
                 <Property name="focusable" type="boolean" value="false"/>
                 <Property name="showGrid" type="boolean" value="true"/>
@@ -151,26 +177,25 @@
         <Component class="javax.swing.JComboBox" name="jComboAreas">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="24" green="1c" red="ec" type="rgb"/>
-            </Property>
-            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="0" green="0" red="0" type="rgb"/>
+            </Property>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="13">
+              <StringArray count="12">
                 <StringItem index="0" value="SELECCIONAR"/>
-                <StringItem index="1" value="GERENCIA"/>
-                <StringItem index="2" value="RECEPCI&#xd3;N"/>
-                <StringItem index="3" value="CAJAS"/>
-                <StringItem index="4" value="LIMPIEZA"/>
-                <StringItem index="5" value="SEGURIDAD"/>
-                <StringItem index="6" value="ALMACEN"/>
-                <StringItem index="7" value="COMIDAS"/>
-                <StringItem index="8" value="PISO"/>
-                <StringItem index="9" value="ADUANAS"/>
-                <StringItem index="10" value="FRUTAS Y VERDURAS"/>
-                <StringItem index="11" value="CARNICER&#xcd;A"/>
-                <StringItem index="12" value="PANADER&#xcd;A"/>
+                <StringItem index="1" value="RECEPCI&#xd3;N"/>
+                <StringItem index="2" value="CAJAS"/>
+                <StringItem index="3" value="LIMPIEZA"/>
+                <StringItem index="4" value="SEGURIDAD"/>
+                <StringItem index="5" value="ALMACEN"/>
+                <StringItem index="6" value="COMIDAS"/>
+                <StringItem index="7" value="PISO"/>
+                <StringItem index="8" value="ADUANAS"/>
+                <StringItem index="9" value="FRUTAS Y VERDURAS"/>
+                <StringItem index="10" value="CARNICER&#xcd;A"/>
+                <StringItem index="11" value="PANADER&#xcd;A"/>
               </StringArray>
             </Property>
           </Properties>
@@ -181,7 +206,7 @@
         <Component class="javax.swing.JButton" name="btnExportar">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="24" green="1c" red="ec" type="rgb"/>
+              <Color blue="0" green="0" red="99" type="rgb"/>
             </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="STXinwei" size="18" style="1"/>
@@ -221,7 +246,7 @@
         <Component class="javax.swing.JButton" name="btnVer">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="24" green="1c" red="ec" type="rgb"/>
+              <Color blue="0" green="0" red="99" type="rgb"/>
             </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="STXinwei" size="18" style="1"/>

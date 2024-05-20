@@ -75,10 +75,11 @@ public class IFormAsigHorario extends javax.swing.JInternalFrame {
         jLabel1.setForeground(new java.awt.Color(102, 102, 102));
         jLabel1.setText("Asignar horarios");
 
-        jSeparator1.setForeground(new java.awt.Color(0, 0, 0));
+        jSeparator1.setBackground(new java.awt.Color(153, 0, 0));
+        jSeparator1.setForeground(new java.awt.Color(153, 0, 0));
         jSeparator1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
 
-        btnAsignar.setBackground(new java.awt.Color(255, 0, 0));
+        btnAsignar.setBackground(new java.awt.Color(153, 0, 0));
         btnAsignar.setFont(new java.awt.Font("STXinwei", 1, 24)); // NOI18N
         btnAsignar.setForeground(new java.awt.Color(255, 255, 255));
         btnAsignar.setText("Asignar");
@@ -89,7 +90,7 @@ public class IFormAsigHorario extends javax.swing.JInternalFrame {
             }
         });
 
-        btnBuscar.setBackground(new java.awt.Color(255, 0, 0));
+        btnBuscar.setBackground(new java.awt.Color(153, 0, 0));
         btnBuscar.setFont(new java.awt.Font("STXinwei", 1, 24)); // NOI18N
         btnBuscar.setForeground(new java.awt.Color(255, 255, 255));
         btnBuscar.setText("Buscar");
@@ -123,7 +124,7 @@ public class IFormAsigHorario extends javax.swing.JInternalFrame {
                             .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel1)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 44, Short.MAX_VALUE)
+                        .addGap(0, 0, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel4)
                             .addComponent(jLabel3))
@@ -184,6 +185,14 @@ public class IFormAsigHorario extends javax.swing.JInternalFrame {
                 {null, null, null, null},
                 {null, null, null, null},
                 {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
                 {null, null, null, null}
             },
             new String [] {
@@ -205,13 +214,13 @@ public class IFormAsigHorario extends javax.swing.JInternalFrame {
         tblVerHorarios.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(tblVerHorarios);
 
-        jComboAreas.setBackground(new java.awt.Color(255, 0, 0));
+        jComboAreas.setBackground(new java.awt.Color(255, 255, 255));
         jComboAreas.setFont(new java.awt.Font("STXinwei", 1, 18)); // NOI18N
-        jComboAreas.setForeground(new java.awt.Color(255, 255, 255));
-        jComboAreas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "FILTRAR", "GERENCIA", "RECEPCIÓN", "CAJAS", "LIMPIEZA", "SEGURIDAD", "ALMACEN", "COMIDAS", "PISO", "ADUANAS", "FRUTAS Y VERDURAS", "CARNICERÍA", "PANADERÍA" }));
+        jComboAreas.setForeground(new java.awt.Color(0, 0, 0));
+        jComboAreas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "FILTRAR", "RECEPCIÓN", "CAJAS", "LIMPIEZA", "SEGURIDAD", "ALMACEN", "COMIDAS", "PISO", "ADUANAS", "FRUTAS Y VERDURAS", "CARNICERÍA", "PANADERÍA" }));
         jComboAreas.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        btnExportar.setBackground(new java.awt.Color(236, 28, 36));
+        btnExportar.setBackground(new java.awt.Color(153, 0, 0));
         btnExportar.setFont(new java.awt.Font("STXinwei", 1, 18)); // NOI18N
         btnExportar.setForeground(new java.awt.Color(255, 255, 255));
         btnExportar.setText("Exportar");
@@ -222,7 +231,8 @@ public class IFormAsigHorario extends javax.swing.JInternalFrame {
             }
         });
 
-        jSeparator2.setForeground(new java.awt.Color(102, 102, 102));
+        jSeparator2.setBackground(new java.awt.Color(153, 0, 0));
+        jSeparator2.setForeground(new java.awt.Color(153, 0, 0));
         jSeparator2.setOrientation(javax.swing.SwingConstants.VERTICAL);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -265,8 +275,8 @@ public class IFormAsigHorario extends javax.swing.JInternalFrame {
 
     private void btnAsignarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAsignarActionPerformed
         
-        Date fechaInicio = jDateFechaInicio.getDate();
-  Date fechaFin = jDateFechaFin.getDate();
+    Date fechaInicio = jDateFechaInicio.getDate();
+    Date fechaFin = jDateFechaFin.getDate();
 
   // Verificar si las fechas son nulas
   if (fechaInicio == null || fechaFin == null) {

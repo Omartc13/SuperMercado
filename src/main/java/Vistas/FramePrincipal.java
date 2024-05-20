@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package Vistas;
 
 import javax.swing.JDesktopPane;
@@ -15,11 +12,14 @@ import javax.swing.UIManager;
 public class FramePrincipal extends javax.swing.JFrame {
 
     private JDesktopPane desktopPane;
-
+    
     public FramePrincipal() {
         initComponents();
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
+        setResizable(false);
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setSize(1207, 664);
+        getRootPane().setWindowDecorationStyle(javax.swing.JRootPane.FRAME); // Estilo de decoración para permitir el botón de cerrar
         desktopPane = new JDesktopPane();
         getContentPane().add(desktopPane);
         // Cambiar el color de fondo del menú
@@ -29,6 +29,7 @@ public class FramePrincipal extends javax.swing.JFrame {
         // Volver a pintar el menú para que se reflejen los cambios
         jMenuBar1.updateUI();
     }
+    
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -284,6 +285,11 @@ public class FramePrincipal extends javax.swing.JFrame {
         jMenuCerrarSesion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/cerrarSesion.png"))); // NOI18N
         jMenuCerrarSesion.setText("CERRAR SESIÓN");
         jMenuCerrarSesion.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
+        jMenuCerrarSesion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuCerrarSesionActionPerformed(evt);
+            }
+        });
 
         jMItemCerrar1.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
         jMItemCerrar1.setText("Cerrar Sesión");
@@ -349,8 +355,14 @@ public class FramePrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jMItemMiTiendaActionPerformed
 
     private void jMItemCerrar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMItemCerrar1ActionPerformed
-        // TODO add your handling code here:
+        dispose();
+         Login login = new Login();
+        login.setVisible(true);
     }//GEN-LAST:event_jMItemCerrar1ActionPerformed
+
+    private void jMenuCerrarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuCerrarSesionActionPerformed
+
+    }//GEN-LAST:event_jMenuCerrarSesionActionPerformed
 
     /**
      * @param args the command line arguments
