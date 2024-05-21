@@ -38,6 +38,8 @@ public class FramePrincipal extends javax.swing.JFrame {
         UIManager.put("Menu.foreground", new javax.swing.plaf.ColorUIResource(255, 255, 255));
         // Volver a pintar el menú para que se reflejen los cambios
         jMenuBar1.updateUI();
+        actualizarListas();
+        verificarFecha();
     }
     
     
@@ -135,6 +137,7 @@ public class FramePrincipal extends javax.swing.JFrame {
 
         jScrollPane4.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 
+        txtRecordar.setEditable(false);
         txtRecordar.setBackground(new java.awt.Color(153, 0, 0));
         txtRecordar.setColumns(20);
         txtRecordar.setFont(new java.awt.Font("Segoe UI Black", 1, 9)); // NOI18N

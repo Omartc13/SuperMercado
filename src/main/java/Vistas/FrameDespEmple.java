@@ -107,7 +107,7 @@ public class FrameDespEmple extends javax.swing.JFrame {
         jComboArea.setBackground(new java.awt.Color(255, 255, 255));
         jComboArea.setFont(new java.awt.Font("STXinwei", 0, 18)); // NOI18N
         jComboArea.setForeground(new java.awt.Color(0, 0, 0));
-        jComboArea.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECCIONAR", "GERENCIA", "RECEPCIÓN", "CAJAS", "LIMPIEZA", "SEGURIDAD", "ALMACEN", "COMIDAS", "PISO", "ADUANAS", "FRUTAS Y VERDURAS", "CARNICERÍA", "PANADERÍA" }));
+        jComboArea.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECCIONAR", "RECEPCIÓN", "CAJAS", "LIMPIEZA", "SEGURIDAD", "ALMACEN", "COMIDAS", "PISO", "ADUANAS", "FRUTAS Y VERDURAS", "CARNICERÍA", "PANADERÍA" }));
         jComboArea.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
 
         txtSueldo.setBackground(new java.awt.Color(255, 255, 255));

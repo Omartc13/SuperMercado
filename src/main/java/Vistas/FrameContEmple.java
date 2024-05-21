@@ -1,5 +1,6 @@
 package Vistas;
 
+import Modelo.Asistencia;
 import Modelo.ConexionBD;
 import Modelo.Empleado;
 import java.awt.event.KeyEvent;
@@ -16,6 +17,7 @@ import javax.swing.JOptionPane;
 public class FrameContEmple extends javax.swing.JFrame {
 
     Empleado emple;
+    Asistencia asis = new Asistencia();
 
     public FrameContEmple() {
         initComponents();
@@ -321,17 +323,22 @@ public class FrameContEmple extends javax.swing.JFrame {
 
                 //Verifica el usuario y contraseña del admin
                 if (estAd) {
-                    boolean estado = emple.AgregarEmple(emple);
-                    if (estado == true) {
-                        JOptionPane.showMessageDialog(rootPane, "Empleado Agregado");
-                        LimpFrame();
+
+                    if (!asis.ValidadDNI(Integer.parseInt(txtDNI.getText()))) {
+                        boolean estado = emple.AgregarEmple(emple);
+                        if (estado == true) {
+                            JOptionPane.showMessageDialog(rootPane, "Empleado Agregado");
+                            LimpFrame();
+                        } else {
+                            JOptionPane.showMessageDialog(rootPane, "Empleado NO Agregado");
+                        }
                     } else {
-                        JOptionPane.showMessageDialog(rootPane, "Empleado NO Agregado");
+                        JOptionPane.showMessageDialog(null, "Empleado ya registrado","Error", JOptionPane.ERROR_MESSAGE);
                     }
                 } else {
                     JOptionPane.showMessageDialog(rootPane, "Usuario o contraseña incorrectos");
                 }
-            }else{
+            } else {
                 JOptionPane.showMessageDialog(rootPane, "El DNI debe tener 8 digitos");
             }
         }

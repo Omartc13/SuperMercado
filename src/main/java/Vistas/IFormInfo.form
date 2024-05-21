@@ -96,7 +96,7 @@
                 <StringItem index="7" value="COMIDAS"/>
                 <StringItem index="8" value="PISO"/>
                 <StringItem index="9" value="ADUANAS"/>
-                <StringItem index="10" value="FRUTAS Y VERDUDAS"/>
+                <StringItem index="10" value="FRUTAS Y VERDURAS"/>
                 <StringItem index="11" value="CARNICER&#xcd;A"/>
                 <StringItem index="12" value="PANADER&#xcd;A"/>
               </StringArray>

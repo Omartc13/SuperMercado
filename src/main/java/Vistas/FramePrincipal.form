@@ -478,6 +478,7 @@
               <SubComponents>
                 <Component class="javax.swing.JTextArea" name="txtRecordar">
                   <Properties>
+                    <Property name="editable" type="boolean" value="false"/>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="0" green="0" red="99" type="rgb"/>
                     </Property>

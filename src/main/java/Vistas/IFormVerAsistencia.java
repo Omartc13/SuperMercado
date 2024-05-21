@@ -103,7 +103,7 @@ public class IFormVerAsistencia extends javax.swing.JInternalFrame {
 
         jComboAreas.setBackground(new java.awt.Color(255, 255, 255));
         jComboAreas.setForeground(new java.awt.Color(255, 255, 255));
-        jComboAreas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECCIONAR", "GERENCIA", "RECEPCIÓN", "CAJAS", "LIMPIEZA", "SEGURIDAD", "ALMACEN", "COMIDAS", "PISO", "ADUANAS", "FRUTAS Y VERDURAS", "CARNICERÍA", "PANADERÍA" }));
+        jComboAreas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECCIONAR", "RECEPCIÓN", "CAJAS", "LIMPIEZA", "SEGURIDAD", "ALMACEN", "COMIDAS", "PISO", "ADUANAS", "FRUTAS Y VERDURAS", "CARNICERÍA", "PANADERÍA" }));
 
         btnExportar.setBackground(new java.awt.Color(153, 0, 0));
         btnExportar.setFont(new java.awt.Font("STXinwei", 1, 18)); // NOI18N

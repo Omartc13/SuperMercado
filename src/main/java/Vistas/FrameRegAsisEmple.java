@@ -48,10 +48,14 @@ public class FrameRegAsisEmple extends javax.swing.JFrame {
         txtDNI.setForeground(new java.awt.Color(255, 0, 0));
         txtDNI.setText("DNI");
         txtDNI.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 0, 0), 2));
-        txtDNI.setOpaque(true);
         txtDNI.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 txtDNIMousePressed(evt);
+            }
+        });
+        txtDNI.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtDNIKeyTyped(evt);
             }
         });
 
@@ -122,12 +126,23 @@ public class FrameRegAsisEmple extends javax.swing.JFrame {
     if (asi.registrarAsistencia(Integer.parseInt(txtDNI.getText()))) {
         JOptionPane.showMessageDialog(this, "Registrado exitosamente");
         txtDNI.setText("");  
-          }  
+        }  
     }//GEN-LAST:event_btnAceptarActionPerformed
 
     private void txtDNIMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtDNIMousePressed
         txtDNI.setText("");
     }//GEN-LAST:event_txtDNIMousePressed
+
+    private void txtDNIKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDNIKeyTyped
+        if (txtDNI.getText().length() >= 8) {
+            evt.consume();
+        }
+
+        char c = evt.getKeyChar();
+        if (!Character.isDigit(c)) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtDNIKeyTyped
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */

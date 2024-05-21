@@ -69,6 +69,11 @@ public class Login extends javax.swing.JFrame {
         TxtUsuario.setBackground(new java.awt.Color(255, 255, 255));
         TxtUsuario.setFont(new java.awt.Font("Monospaced", 0, 18)); // NOI18N
         TxtUsuario.setForeground(new java.awt.Color(0, 0, 0));
+        TxtUsuario.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                TxtUsuarioKeyTyped(evt);
+            }
+        });
         jPanel1.add(TxtUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(103, 335, 280, 49));
 
         TxtContra.setBackground(new java.awt.Color(255, 255, 255));
@@ -159,6 +164,17 @@ public class Login extends javax.swing.JFrame {
             TxtContra.setEchoChar('*');
         }
     }//GEN-LAST:event_jCheckBox1ActionPerformed
+
+    private void TxtUsuarioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtUsuarioKeyTyped
+        if (TxtUsuario.getText().length() >= 8) {
+            evt.consume();
+        }
+
+        char c = evt.getKeyChar();
+        if (!Character.isDigit(c)) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_TxtUsuarioKeyTyped
 
     private boolean validarLogin(String usuario, String contrasena) {
         try {
