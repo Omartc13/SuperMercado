@@ -55,7 +55,7 @@ public class FrameDespEmple extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel2.setFont(new java.awt.Font("STXinwei", 1, 24)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(236, 28, 36));
+        jLabel2.setForeground(new java.awt.Color(153, 0, 0));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("DNI:");
 
@@ -80,7 +80,7 @@ public class FrameDespEmple extends javax.swing.JFrame {
         });
 
         jLabel3.setFont(new java.awt.Font("STXinwei", 1, 24)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(236, 28, 36));
+        jLabel3.setForeground(new java.awt.Color(153, 0, 0));
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("NOMBRE:");
 
@@ -95,12 +95,12 @@ public class FrameDespEmple extends javax.swing.JFrame {
         });
 
         jLabel4.setFont(new java.awt.Font("STXinwei", 1, 20)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(236, 28, 36));
+        jLabel4.setForeground(new java.awt.Color(153, 0, 0));
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText("APELLIDO PATERNO:");
 
         jLabel5.setFont(new java.awt.Font("STXinwei", 1, 24)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(236, 28, 36));
+        jLabel5.setForeground(new java.awt.Color(153, 0, 0));
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setText("AREA:");
 
@@ -121,7 +121,7 @@ public class FrameDespEmple extends javax.swing.JFrame {
         });
 
         jLabel6.setFont(new java.awt.Font("STXinwei", 1, 24)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(236, 28, 36));
+        jLabel6.setForeground(new java.awt.Color(153, 0, 0));
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setText("SUELDO:");
 
@@ -132,11 +132,11 @@ public class FrameDespEmple extends javax.swing.JFrame {
         jComboTurno.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
 
         jLabel7.setFont(new java.awt.Font("STXinwei", 1, 24)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(236, 28, 36));
+        jLabel7.setForeground(new java.awt.Color(153, 0, 0));
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel7.setText("TURNO:");
 
-        btnDespedir.setBackground(new java.awt.Color(255, 0, 0));
+        btnDespedir.setBackground(new java.awt.Color(153, 0, 0));
         btnDespedir.setFont(new java.awt.Font("STXinwei", 1, 18)); // NOI18N
         btnDespedir.setForeground(new java.awt.Color(255, 255, 255));
         btnDespedir.setText("Despedir");
@@ -164,7 +164,7 @@ public class FrameDespEmple extends javax.swing.JFrame {
         jSeparator1.setForeground(new java.awt.Color(102, 102, 102));
 
         jLabel8.setFont(new java.awt.Font("STXinwei", 1, 19)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(236, 28, 36));
+        jLabel8.setForeground(new java.awt.Color(153, 0, 0));
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel8.setText("APELLIDO MATERNO:");
 
@@ -179,7 +179,7 @@ public class FrameDespEmple extends javax.swing.JFrame {
         });
 
         jLabel10.setFont(new java.awt.Font("STXinwei", 1, 20)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(236, 28, 36));
+        jLabel10.setForeground(new java.awt.Color(153, 0, 0));
         jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel10.setText("FECHA DE INGRESO:");
 
@@ -200,7 +200,7 @@ public class FrameDespEmple extends javax.swing.JFrame {
         });
 
         jLabel9.setFont(new java.awt.Font("STXinwei", 1, 24)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(236, 28, 36));
+        jLabel9.setForeground(new java.awt.Color(153, 0, 0));
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel9.setText("CARGO:");
 

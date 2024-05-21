@@ -1,6 +1,16 @@
 
 package Vistas;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.time.DayOfWeek;
+import java.time.LocalDate;
+import java.time.Month;
+import java.util.HashMap;
+import javax.swing.DefaultListModel;
 import javax.swing.JDesktopPane;
 import javax.swing.JFrame;
 import javax.swing.UIManager;
@@ -30,7 +40,7 @@ public class FramePrincipal extends javax.swing.JFrame {
         jMenuBar1.updateUI();
     }
     
-
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -39,11 +49,18 @@ public class FramePrincipal extends javax.swing.JFrame {
         jMenuItem1 = new javax.swing.JMenuItem();
         jPanel1 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        List1 = new javax.swing.JList<>();
         jPanel2 = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        List2 = new javax.swing.JList<>();
         jPanel4 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        txtRecordar = new javax.swing.JTextArea();
+        btnActualizar = new javax.swing.JButton();
         jDesktopPane1 = new javax.swing.JDesktopPane();
         jLabel4 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
@@ -75,89 +92,72 @@ public class FramePrincipal extends javax.swing.JFrame {
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 3, true));
         jPanel3.setForeground(new java.awt.Color(0, 0, 0));
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setFont(new java.awt.Font("STXinwei", 0, 24)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("ANUNCIO");
-        jLabel2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/AdvertenciaRoja.png"))); // NOI18N
+        jPanel3.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 110, 110));
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(48, Short.MAX_VALUE)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20))
-        );
+        List1.setBackground(new java.awt.Color(153, 0, 0));
+        List1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        List1.setFont(new java.awt.Font("Segoe UI Black", 1, 9)); // NOI18N
+        List1.setForeground(new java.awt.Color(255, 255, 255));
+        jScrollPane2.setViewportView(List1);
 
-        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 20, -1, -1));
+        jPanel3.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 20, 200, 110));
+
+        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 20, 330, 150));
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 3, true));
         jPanel2.setForeground(new java.awt.Color(0, 0, 0));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel3.setFont(new java.awt.Font("STXinwei", 0, 24)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("ANUNCIO");
-        jLabel3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/AdvertenciaAmarrilla.png"))); // NOI18N
+        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 110, 110));
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(34, 34, 34)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(35, Short.MAX_VALUE))
-        );
+        List2.setBackground(new java.awt.Color(153, 0, 0));
+        List2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        List2.setFont(new java.awt.Font("Segoe UI Black", 1, 9)); // NOI18N
+        List2.setForeground(new java.awt.Color(255, 255, 255));
+        jScrollPane1.setViewportView(List2);
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 204, -1, -1));
+        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 20, 190, 110));
+
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, 320, 150));
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
         jPanel4.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 3, true));
         jPanel4.setForeground(new java.awt.Color(0, 0, 0));
+        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("STXinwei", 0, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("ANUNCIO");
-        jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Recordar.png"))); // NOI18N
+        jPanel4.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 110, 110));
 
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(35, 35, 35)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(34, Short.MAX_VALUE))
-        );
+        jScrollPane4.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 
-        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 386, 318, -1));
+        txtRecordar.setBackground(new java.awt.Color(153, 0, 0));
+        txtRecordar.setColumns(20);
+        txtRecordar.setFont(new java.awt.Font("Segoe UI Black", 1, 9)); // NOI18N
+        txtRecordar.setForeground(new java.awt.Color(255, 255, 255));
+        txtRecordar.setRows(5);
+        txtRecordar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jScrollPane4.setViewportView(txtRecordar);
+
+        jPanel4.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 20, 190, 110));
+
+        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 340, 320, 150));
+
+        btnActualizar.setBackground(new java.awt.Color(153, 0, 0));
+        btnActualizar.setFont(new java.awt.Font("STXinwei", 1, 18)); // NOI18N
+        btnActualizar.setForeground(new java.awt.Color(255, 255, 255));
+        btnActualizar.setText("Actualizar Notas");
+        btnActualizar.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
+        btnActualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnActualizarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnActualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 510, 190, 39));
 
         jDesktopPane1.setBackground(new java.awt.Color(255, 255, 255));
         jDesktopPane1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
@@ -364,9 +364,103 @@ public class FramePrincipal extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jMenuCerrarSesionActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
+    private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
+        actualizarListas();
+        verificarFecha();
+    }//GEN-LAST:event_btnActualizarActionPerformed
+     private void actualizarListas() {
+        DefaultListModel<String> modelFaltantes = new DefaultListModel<>();
+        DefaultListModel<String> modelSobrantes = new DefaultListModel<>();
+
+        try {
+            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/supermercado", "root", "");
+
+            // Consulta para obtener la cantidad de trabajadores por área
+            String queryTrabajadores = "SELECT Area, COUNT(*) AS Total FROM trabajador GROUP BY Area";
+            PreparedStatement pstmtTrabajadores = conn.prepareStatement(queryTrabajadores);
+            ResultSet rsTrabajadores = pstmtTrabajadores.executeQuery();
+
+            // Mapa para almacenar la cantidad de trabajadores por área
+            HashMap<String, Integer> trabajadoresPorArea = new HashMap<>();
+
+            while (rsTrabajadores.next()) {
+                String area = rsTrabajadores.getString("Area");
+                int totalTrabajadores = rsTrabajadores.getInt("Total");
+                trabajadoresPorArea.put(area, totalTrabajadores);
+            }
+
+            // Consulta para obtener el PersonalMin y PersonalMax de cada área
+            String queryPersonal = "SELECT Nombre, PersonalMin, PersonalMax FROM areas";
+            PreparedStatement pstmtPersonal = conn.prepareStatement(queryPersonal);
+            ResultSet rsPersonal = pstmtPersonal.executeQuery();
+
+            boolean todoCorrectoFaltantes = true;
+            boolean todoCorrectoSobrantes = true;
+
+            while (rsPersonal.next()) {
+                String area = rsPersonal.getString("Nombre");
+                int personalMin = rsPersonal.getInt("PersonalMin");
+                int personalMax = rsPersonal.getInt("PersonalMax");
+                int totalTrabajadores = trabajadoresPorArea.getOrDefault(area, 0);
+
+                if (totalTrabajadores < personalMin) {
+                    int faltantes = personalMin - totalTrabajadores;
+                    String mensaje = "Falta/n " + faltantes + " trabajador/es para el área " + area+"\n\n";
+                    modelFaltantes.addElement(mensaje);
+                    todoCorrectoFaltantes = false;
+                }
+
+                if (totalTrabajadores > personalMax) {
+                    int sobrantes = totalTrabajadores - personalMax;
+                    String mensaje = "Hay " + sobrantes + " trabajador/es sobrantes en el área " + area+"\n\n";
+                    modelSobrantes.addElement(mensaje);
+                    todoCorrectoSobrantes = false;
+                }
+            }
+
+            if (todoCorrectoFaltantes) {
+                modelFaltantes.addElement("TODO CORRECTO");
+            }
+
+            if (todoCorrectoSobrantes) {
+                modelSobrantes.addElement("TODO CORRECTO");
+            }
+
+            List1.setModel(modelFaltantes);
+            List2.setModel(modelSobrantes);
+
+            rsTrabajadores.close();
+            rsPersonal.close();
+            pstmtTrabajadores.close();
+            pstmtPersonal.close();
+            conn.close();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        }
+     
+        private void verificarFecha() {
+    LocalDate fechaActual = LocalDate.now();
+    DayOfWeek diaSemana = fechaActual.getDayOfWeek();
+    int diaMes = fechaActual.getDayOfMonth();
+
+    StringBuilder mensaje = new StringBuilder();
+
+    if (diaSemana == DayOfWeek.SATURDAY || diaSemana == DayOfWeek.SUNDAY) {
+        mensaje.append("-No olvidar generar los horarios\npara la semana entrante\n\n");
+    }
+
+    if (diaMes >= 28 && diaMes <= 31) {
+        mensaje.append("-Recordar generar pagos para\ncalcular bonificaciones y penalizaciones\n");
+    }
+
+    if (mensaje.length() == 0) {
+        mensaje.append("NO HAY RECORDATORIOS");
+    }
+
+    txtRecordar.setText(mensaje.toString());
+}
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -398,13 +492,16 @@ public class FramePrincipal extends javax.swing.JFrame {
             }
         });
     }
-
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JList<String> List1;
+    private javax.swing.JList<String> List2;
+    private javax.swing.JButton btnActualizar;
     private javax.swing.JDesktopPane jDesktopPane1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JMenuItem jMItemAsigHorarios;
     private javax.swing.JMenuItem jMItemCerrar1;
     private javax.swing.JMenuItem jMItemGestEmple;
@@ -427,5 +524,9 @@ public class FramePrincipal extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JTextArea txtRecordar;
     // End of variables declaration//GEN-END:variables
 }

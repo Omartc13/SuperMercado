@@ -99,7 +99,7 @@ public class IFormEmpleados extends javax.swing.JInternalFrame {
         jLabel2.setForeground(new java.awt.Color(102, 102, 102));
         jLabel2.setText("Filtrar:");
 
-        jComboFiltrar.setBackground(new java.awt.Color(236, 28, 36));
+        jComboFiltrar.setBackground(new java.awt.Color(255, 255, 255));
         jComboFiltrar.setForeground(new java.awt.Color(255, 255, 255));
         jComboFiltrar.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECCIONAR", "GERENCIA", "RECEPCIÓN", "CAJAS", "LIMPIEZA", "SEGURIDAD", "ALMACEN", "COMIDAS", "PISO", "ADUANAS", "FRUTAS Y VERDURAS", "CARNICERÍA", "PANADERÍA" }));
         jComboFiltrar.addItemListener(new java.awt.event.ItemListener() {
@@ -108,7 +108,7 @@ public class IFormEmpleados extends javax.swing.JInternalFrame {
             }
         });
 
-        btnContratar.setBackground(new java.awt.Color(236, 28, 36));
+        btnContratar.setBackground(new java.awt.Color(153, 0, 0));
         btnContratar.setFont(new java.awt.Font("STXinwei", 1, 18)); // NOI18N
         btnContratar.setForeground(new java.awt.Color(255, 255, 255));
         btnContratar.setText("Contratar");
@@ -119,7 +119,7 @@ public class IFormEmpleados extends javax.swing.JInternalFrame {
             }
         });
 
-        btnDespedir.setBackground(new java.awt.Color(236, 28, 36));
+        btnDespedir.setBackground(new java.awt.Color(153, 0, 0));
         btnDespedir.setFont(new java.awt.Font("STXinwei", 1, 18)); // NOI18N
         btnDespedir.setForeground(new java.awt.Color(255, 255, 255));
         btnDespedir.setText("Despedir");
@@ -130,7 +130,7 @@ public class IFormEmpleados extends javax.swing.JInternalFrame {
             }
         });
 
-        btnEditar.setBackground(new java.awt.Color(236, 28, 36));
+        btnEditar.setBackground(new java.awt.Color(153, 0, 0));
         btnEditar.setFont(new java.awt.Font("STXinwei", 1, 18)); // NOI18N
         btnEditar.setForeground(new java.awt.Color(255, 255, 255));
         btnEditar.setText("Editar");
@@ -141,7 +141,7 @@ public class IFormEmpleados extends javax.swing.JInternalFrame {
             }
         });
 
-        btnBuscar.setBackground(new java.awt.Color(236, 28, 36));
+        btnBuscar.setBackground(new java.awt.Color(153, 0, 0));
         btnBuscar.setFont(new java.awt.Font("STXinwei", 1, 18)); // NOI18N
         btnBuscar.setForeground(new java.awt.Color(255, 255, 255));
         btnBuscar.setText("Buscar");
@@ -152,7 +152,7 @@ public class IFormEmpleados extends javax.swing.JInternalFrame {
             }
         });
 
-        btnExportar.setBackground(new java.awt.Color(236, 28, 36));
+        btnExportar.setBackground(new java.awt.Color(153, 0, 0));
         btnExportar.setFont(new java.awt.Font("STXinwei", 1, 18)); // NOI18N
         btnExportar.setForeground(new java.awt.Color(255, 255, 255));
         btnExportar.setText("Exportar");
@@ -210,7 +210,7 @@ public class IFormEmpleados extends javax.swing.JInternalFrame {
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jComboFiltrar))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 312, javax.swing.GroupLayout.PREFERRED_SIZE)

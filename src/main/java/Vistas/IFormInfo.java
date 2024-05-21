@@ -30,6 +30,7 @@ public class IFormInfo extends javax.swing.JInternalFrame {
         jLabel11 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTxtInfo = new javax.swing.JTextArea();
+        btnContratar = new javax.swing.JButton();
 
         setClosable(true);
 
@@ -116,7 +117,7 @@ public class IFormInfo extends javax.swing.JInternalFrame {
 
         jLabel8.setFont(new java.awt.Font("Monospaced", 1, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel8.setText("Puntual: X:XX - 10 min -> Sueldo + 0.005%");
+        jLabel8.setText("Puntual: X:XX - 10 min -> Sueldo + 0.5%");
         jLabel8.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jPanel5.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 390, 30));
 
@@ -128,7 +129,7 @@ public class IFormInfo extends javax.swing.JInternalFrame {
 
         jLabel11.setFont(new java.awt.Font("Monospaced", 1, 14)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel11.setText("Tardanza: X:XX + 11 min -> Sueldo - 0.005%");
+        jLabel11.setText("Tardanza: X:XX + 11 min -> Sueldo - 0.5%");
         jLabel11.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jPanel5.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 380, -1));
 
@@ -141,7 +142,19 @@ public class IFormInfo extends javax.swing.JInternalFrame {
         jTxtInfo.setRows(5);
         jScrollPane1.setViewportView(jTxtInfo);
 
-        jPanel3.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 170, 310, 300));
+        jPanel3.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 170, 310, 200));
+
+        btnContratar.setBackground(new java.awt.Color(153, 0, 0));
+        btnContratar.setFont(new java.awt.Font("STXinwei", 1, 18)); // NOI18N
+        btnContratar.setForeground(new java.awt.Color(255, 255, 255));
+        btnContratar.setText("Gestionar Personal");
+        btnContratar.setBorder(null);
+        btnContratar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnContratarActionPerformed(evt);
+            }
+        });
+        jPanel3.add(btnContratar, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 400, 240, 50));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -169,7 +182,7 @@ public class IFormInfo extends javax.swing.JInternalFrame {
         jTxtInfo.setText("Recepcionistas(6)\n(1 minimo por turno)");
                 break;
             case "CAJAS":
-        jTxtInfo.setText("Jefe(1)\nFrente de caja(9)\n(2 minimo por turno)\nCajeros/as(min=27; max=30)\n(8 mínimo por turno)");
+        jTxtInfo.setText("Jefe(1)\nFrente de caja(9)\n(2 minimo por turno)\nCajeros/as(min=24; max=27)\n(8 mínimo por turno)");
                 break;
             case "LIMPIEZA":
         jTxtInfo.setText("Jefe(1)\nPersonal de limpieza\n(Min=15; Max=18)\n(4 Minimo por turno)");
@@ -187,7 +200,7 @@ public class IFormInfo extends javax.swing.JInternalFrame {
         jTxtInfo.setText("Jefe(1)\nReponedores/Acomodadores\n(Min=27; Max=30\n(8 mínimo por turno");
                 break;   
            case "ADUANAS":
-        jTxtInfo.setText("Jefe(1)\nFrente de aduanas(9)\n(2 minimo por turno)\nAduaneros/as(min=27; max=30)\n(8 mínimo por turno)");
+        jTxtInfo.setText("Jefe(1)\nFrente de aduanas(9)\n(2 minimo por turno)\nAduaneros/as(min=24; max=27)\n(8 mínimo por turno)");
                 break;   
            case "FRUTAS Y VERDURAS":
         jTxtInfo.setText("Jefe(1)\nPersonal de sector frutas y comidas\n(Min=15; Max=18\n(4 mínimo por turno");
@@ -204,9 +217,15 @@ public class IFormInfo extends javax.swing.JInternalFrame {
 
     }//GEN-LAST:event_btnBuscActionPerformed
 
+    private void btnContratarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnContratarActionPerformed
+        FrameGestionarPersonal gest = new FrameGestionarPersonal();
+        gest.setVisible(true);
+    }//GEN-LAST:event_btnContratarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBusc;
+    private javax.swing.JButton btnContratar;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;

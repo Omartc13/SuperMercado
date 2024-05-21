@@ -3,7 +3,6 @@ package Modelo;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.CallableStatement;
 import java.sql.Time;
 import java.sql.Date;
 import java.sql.SQLException;
@@ -11,7 +10,6 @@ import java.sql.Statement;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
-import java.util.List;
 import javax.swing.JOptionPane;
 
 /**
@@ -92,28 +90,68 @@ public class Asistencia {
         return false;
     }
 
-    public void registrarAsistencia(int dni) {
-        if (!ValidadDNI(dni)) {
-            JOptionPane.showMessageDialog(null, "El DNI ingresado no es válido.");
-            return;
-        }
+    public boolean registrarAsistencia(int dni) {
+    if (!ValidadDNI(dni)) {
+        JOptionPane.showMessageDialog(null, "El DNI ingresado no es válido.");
+        return false;
+    }
 
-        String puntualidad = determinarPuntualidad();
-        Time horaLlegada = Time.valueOf(LocalTime.now());
-        Date fecha = Date.valueOf(LocalDate.now());
+    String turno = determinarTurno();
+    LocalTime horaActual = LocalTime.now();
+    boolean asistenciaValida = false;
 
-        String sql = "INSERT INTO asistencia (DNI, FECHA, HoraLlegada, Puntualidad) VALUES (?, ?, ?, ?)";
-        try (PreparedStatement stmt = con.prepareStatement(sql)) {
-            stmt.setInt(1, dni);
-            stmt.setDate(2, fecha);
-            stmt.setTime(3, horaLlegada);
-            stmt.setString(4, puntualidad);
-            stmt.executeUpdate();
-        } catch (SQLException e) {
-            e.printStackTrace();
-            JOptionPane.showMessageDialog(null, "Error al registrar la asistencia.");
+    // Determinar el rango de puntualidad según el turno
+    LocalTime inicioPuntual = null;
+    LocalTime finPuntual = null;
+    switch (turno) {
+        case "MAÑANA":
+            inicioPuntual = LocalTime.of(4, 50);
+            finPuntual = LocalTime.of(5, 30);
+            break;
+        case "TARDE":
+            inicioPuntual = LocalTime.of(10, 50);
+            finPuntual = LocalTime.of(11, 30);
+            break;
+        case "NOCHE":
+            inicioPuntual = LocalTime.of(16, 50);
+            finPuntual = LocalTime.of(17, 30);
+            break;
+        default:
+            JOptionPane.showMessageDialog(null, "No se puede ingresar a la tienda, esperar su turno", "Error", JOptionPane.ERROR_MESSAGE);
+            return false;
+    }
+
+    // Verificar si la hora actual está dentro del rango de puntualidad
+    if (horaActual.isAfter(inicioPuntual) || horaActual.equals(inicioPuntual)) {
+        if (horaActual.isBefore(finPuntual)) {
+            asistenciaValida = true;
         }
     }
+
+    if (!asistenciaValida) {
+        JOptionPane.showMessageDialog(null, "No se puede ingresar a la tienda, esperar su turno", "Error", JOptionPane.ERROR_MESSAGE);
+        return false;
+    }
+
+    // Determinar la puntualidad
+    String puntualidad = determinarPuntualidad();
+
+    // Registrar la asistencia
+    Date fecha = Date.valueOf(LocalDate.now());
+    String sql = "INSERT INTO asistencia (DNI, FECHA, HoraLlegada, Puntualidad) VALUES (?, ?, ?, ?)";
+    try (PreparedStatement stmt = con.prepareStatement(sql)) {
+        stmt.setInt(1, dni);
+        stmt.setDate(2, fecha);
+        stmt.setTime(3, Time.valueOf(horaActual));
+        stmt.setString(4, puntualidad);
+        stmt.executeUpdate();
+        return true; // Indica que el registro fue exitoso
+    } catch (SQLException e) {
+        e.printStackTrace();
+        JOptionPane.showMessageDialog(null, "Error al registrar la asistencia.");
+        return false; // Indica que hubo un error al registrar
+    }
+}
 
     private String determinarPuntualidad() {
         String turno = determinarTurno();

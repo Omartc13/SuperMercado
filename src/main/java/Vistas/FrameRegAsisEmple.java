@@ -119,9 +119,10 @@ public class FrameRegAsisEmple extends javax.swing.JFrame {
     private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
 
         Asistencia asi = new Asistencia();
-        asi.registrarAsistencia(Integer.parseInt(txtDNI.getText()));
-        
-        
+    if (asi.registrarAsistencia(Integer.parseInt(txtDNI.getText()))) {
+        JOptionPane.showMessageDialog(this, "Registrado exitosamente");
+        txtDNI.setText("");  
+          }  
     }//GEN-LAST:event_btnAceptarActionPerformed
 
     private void txtDNIMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtDNIMousePressed
