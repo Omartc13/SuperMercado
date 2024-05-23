@@ -3,11 +3,11 @@ package Vistas;
 
 import Modelo.Empleado;
 import Modelo.Horario;
+import ModeloDAO.EmpleadoDAO;
 import java.awt.Desktop;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import javax.swing.JFileChooser;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -34,7 +34,9 @@ public class IFormVerHorarios extends javax.swing.JInternalFrame {
     public IFormVerHorarios() {
         initComponents();
         establecerColumnas();
-
+        for (int column = 0; column < tblVerHorarios.getColumnCount(); column++) {
+            tblVerHorarios.setDefaultEditor(tblVerHorarios.getColumnClass(column), null);
+        }
     }
 
     public void mostrarTabla() {
@@ -47,7 +49,7 @@ public class IFormVerHorarios extends javax.swing.JInternalFrame {
             SimpleDateFormat formatoFec = new SimpleDateFormat("YYYY-MM-dd");
             String fechahor = formatoFec.format(fechaSeleccionada);
 
-            Empleado empleado = new Empleado();
+            EmpleadoDAO empleado = new EmpleadoDAO();
             ArrayList<Horario> horarios = empleado.obtenerHorariosPorAreaYFecha(area, fechahor);
 
             // Limpiar el modelo antes de agregar nuevas filas

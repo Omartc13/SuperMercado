@@ -1,6 +1,6 @@
 package Vistas;
 
-import Modelo.ConexionBD;
+import control.ConexionBD;
 import Modelo.Empleado;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
@@ -12,6 +12,7 @@ import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import ModeloDAO.EmpleadoDAO;
 
 /**
  *
@@ -20,6 +21,7 @@ import javax.swing.JOptionPane;
 public class FrameEditEmple extends javax.swing.JFrame {
 
     Empleado emple;
+    EmpleadoDAO empled;
     Connection con;
     ConexionBD cn = new ConexionBD();
     Statement st;
@@ -404,7 +406,7 @@ public class FrameEditEmple extends javax.swing.JFrame {
             String con = JOptionPane.showInputDialog("Escriba su contraseña");
 
             //Guarda Estado De ValidaciónAdmin
-            boolean estAd = emple.validarAdmin(usu, con);
+            boolean estAd = empled.validarAdmin(usu, con);
 
             //Verifica el usuario y contraseña del admin
             if (estAd) {

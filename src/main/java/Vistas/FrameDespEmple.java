@@ -3,6 +3,7 @@ package Vistas;
 import Modelo.Empleado;
 import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
+import ModeloDAO.EmpleadoDAO;
 
 /**
  *
@@ -11,6 +12,7 @@ import javax.swing.JOptionPane;
 public class FrameDespEmple extends javax.swing.JFrame {
 
     Empleado emple;
+    EmpleadoDAO empled;
 
     public FrameDespEmple() {
         initComponents();
@@ -367,7 +369,7 @@ public class FrameDespEmple extends javax.swing.JFrame {
             String con = JOptionPane.showInputDialog("Escriba su contraseña");
 
             //Guarda Estado De ValidaciónAdmin
-            boolean estAd = emple.validarAdmin(usu, con);
+            boolean estAd = empled.validarAdmin(usu, con);
 
             //Verifica el usuario y contraseña del admin
             if (estAd) {

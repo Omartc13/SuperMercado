@@ -1,5 +1,6 @@
 package Vistas;
 
+import ModeloDAO.BoletaDAO;
 import java.awt.Desktop;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -228,91 +229,16 @@ public class IFormGesPagos extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
     
     private void btnAsignarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAsignarActionPerformed
-        
-        try {
+         try {
         // Obtener fechas seleccionadas
         Date fechaInicio = jDateInicio.getDate();
         Date fechaFinal = jDateFinal.getDate();
-        
-        // Validar fechas seleccionadas
-        if (fechaInicio == null || fechaFinal == null) {
-            JOptionPane.showMessageDialog(null, "Selecciona ambas fechas", "Error", JOptionPane.ERROR_MESSAGE);
-            return;
-        }
 
-        // Validar que la fecha de inicio sea el primer día del mes y la fecha final el último día del mes
-        Calendar cal = Calendar.getInstance();
-        cal.setTime(fechaInicio);
-        if (cal.get(Calendar.DAY_OF_MONTH) != 1) {
-            JOptionPane.showMessageDialog(null, "La fecha de inicio debe ser el primer día del mes", "Error", JOptionPane.ERROR_MESSAGE);
-            return;
-        }
-        
-        cal.setTime(fechaFinal);
-        int maxDay = cal.getActualMaximum(Calendar.DAY_OF_MONTH);
-        if (cal.get(Calendar.DAY_OF_MONTH) != maxDay) {
-            JOptionPane.showMessageDialog(null, "La fecha final debe ser el último día del mes", "Error", JOptionPane.ERROR_MESSAGE);
-            return;
-        }
-        
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-        String strFechaInicio = sdf.format(fechaInicio);
-        String strFechaFinal = sdf.format(fechaFinal);
-
-        // Conectar a la base de datos
-        Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/supermercado", "root", "");
-
-        // Consulta de asistencias agrupadas por trabajador
-        String queryAsistencias = "SELECT DNI, SUM(CASE WHEN Puntualidad = 'MUY PUNTUAL' THEN 1 ELSE 0 END) AS MuyPuntual, SUM(CASE WHEN Puntualidad = 'TARDANZA' THEN 1 ELSE 0 END) AS Tardanza FROM asistencia WHERE Fecha BETWEEN ? AND ? GROUP BY DNI";
-        PreparedStatement pstmtAsistencias = conn.prepareStatement(queryAsistencias);
-        pstmtAsistencias.setString(1, strFechaInicio);
-        pstmtAsistencias.setString(2, strFechaFinal);
-        ResultSet rsAsistencias = pstmtAsistencias.executeQuery();
-
-        // Consulta para obtener SueldoBase y Area desde Trabajador
-        String queryTrabajador = "SELECT SueldoBase, Area FROM trabajador WHERE DNI = ?";
-
-        // Consulta para insertar en Boleta
-        String queryInsertBoleta = "INSERT INTO boleta (idBoleta, DNI, FechaInicio, FechaFinal, SueldoBruto) VALUES (?, ?, ?, ?, ?)";
-        PreparedStatement pstmtInsertBoleta = conn.prepareStatement(queryInsertBoleta);
-
-        // Obtener el último idBoleta
-        Statement stmt = conn.createStatement();
-        ResultSet rs = stmt.executeQuery("SELECT MAX(idBoleta) AS maxId FROM Boleta");
-        int idBoleta = 1;
-        if (rs.next()) {
-            idBoleta = rs.getInt("maxId") + 1;
-        }
-
-        while (rsAsistencias.next()) {
-            String dni = rsAsistencias.getString("DNI");
-            int muyPuntual = rsAsistencias.getInt("MuyPuntual");
-            int tardanza = rsAsistencias.getInt("Tardanza");
-
-            PreparedStatement pstmtTrabajador = conn.prepareStatement(queryTrabajador);
-            pstmtTrabajador.setString(1, dni);
-            ResultSet rsTrabajador = pstmtTrabajador.executeQuery();
-
-            if (rsTrabajador.next()) {
-                double sueldoBase = rsTrabajador.getDouble("SueldoBase");
-                String area = rsTrabajador.getString("Area");
-
-                double sueldoBruto = calcularSueldoBruto(sueldoBase, muyPuntual, tardanza);
-
-                pstmtInsertBoleta.setInt(1, idBoleta++);
-                pstmtInsertBoleta.setString(2, dni);
-                pstmtInsertBoleta.setString(3, strFechaInicio);
-                pstmtInsertBoleta.setString(4, strFechaFinal);
-                pstmtInsertBoleta.setDouble(5, sueldoBruto);
-
-                pstmtInsertBoleta.executeUpdate();
-            }
-        }
-
-        conn.close();
-        JOptionPane.showMessageDialog(null, "Pagos asignados y registrados exitosamente");
-    } catch (SQLException e) {
+        // Llamar al método asignarPagos de BoletaDAO
+        BoletaDAO.asignarPagos(fechaInicio, fechaFinal);
+    } catch (Exception e) {
         e.printStackTrace();
+        JOptionPane.showMessageDialog(null, "Ocurrió un error al asignar los pagos", "Error", JOptionPane.ERROR_MESSAGE);
     }
     }//GEN-LAST:event_btnAsignarActionPerformed
 

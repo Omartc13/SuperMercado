@@ -1,5 +1,5 @@
 
-package Modelo;
+package control;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

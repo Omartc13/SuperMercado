@@ -1,6 +1,6 @@
-package Vistas;
+package VistasPrincipales;
 
-import Modelo.ConexionBD;
+import control.ConexionBD;
 import java.awt.Image;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -20,7 +20,13 @@ public class Login extends javax.swing.JFrame {
         SetImagenLabel(jLabel1, "src/main/resources/imagenes/usu.png");
         this.setResizable(false);
         this.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        this.setMaximumSize(new java.awt.Dimension(460, 650));
+        this.setMaximumSize(new java.awt.Dimension(460, 650));       
+//        btnIngresar.setFocusPainted(true);
+//        btnIngresar.setContentAreaFilled(true); 
+//        btnIngresar.setBorderPainted(false);
+//        btnIngresar.setBackground(new java.awt.Color(153, 0, 0));
+//        btnIngresar.setForeground(java.awt.Color.WHITE); 
+        this.getRootPane().setDefaultButton(btnIngresar);
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -67,7 +73,7 @@ public class Login extends javax.swing.JFrame {
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 290, 220, 40));
 
         TxtUsuario.setBackground(new java.awt.Color(255, 255, 255));
-        TxtUsuario.setFont(new java.awt.Font("Monospaced", 0, 18)); // NOI18N
+        TxtUsuario.setFont(new java.awt.Font("Monospaced", 1, 18)); // NOI18N
         TxtUsuario.setForeground(new java.awt.Color(0, 0, 0));
         TxtUsuario.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -77,11 +83,11 @@ public class Login extends javax.swing.JFrame {
         jPanel1.add(TxtUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(103, 335, 280, 49));
 
         TxtContra.setBackground(new java.awt.Color(255, 255, 255));
-        TxtContra.setFont(new java.awt.Font("Monospaced", 0, 18)); // NOI18N
+        TxtContra.setFont(new java.awt.Font("Monospaced", 1, 18)); // NOI18N
         TxtContra.setForeground(new java.awt.Color(0, 0, 0));
         jPanel1.add(TxtContra, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 430, 280, 48));
 
-        btnIngresar.setBackground(new java.awt.Color(153, 0, 0));
+        btnIngresar.setBackground(new java.awt.Color(0, 0, 0));
         btnIngresar.setFont(new java.awt.Font("Monospaced", 1, 36)); // NOI18N
         btnIngresar.setForeground(new java.awt.Color(255, 255, 255));
         btnIngresar.setText("INGRESAR");

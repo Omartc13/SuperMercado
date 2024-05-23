@@ -1,19 +1,11 @@
 package Vistas;
 
-import Modelo.Asistencia;
-import java.sql.Date;
-import java.sql.SQLException;
-import java.sql.Time;
-import java.time.LocalDate;
-import java.time.LocalTime;
+import ModeloDAO.AsistenciaDAO;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
-import javax.swing.JTextField;
 
 
-/**
- *
- * @author Omar Tc
- */
+
 public class FrameRegAsisEmple extends javax.swing.JFrame {
 
     public FrameRegAsisEmple() {
@@ -121,12 +113,40 @@ public class FrameRegAsisEmple extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
+    AsistenciaDAO asi = new AsistenciaDAO();
+    int dni = Integer.parseInt(txtDNI.getText());
+    String puntualidad = asi.registrarAsistenciaYObtenerPuntualidad(dni); // Método que no existe, se debe implementar
 
-        Asistencia asi = new Asistencia();
-    if (asi.registrarAsistencia(Integer.parseInt(txtDNI.getText()))) {
-        JOptionPane.showMessageDialog(this, "Registrado exitosamente");
+    if (puntualidad != null) {
+        String mensaje = "";
+        String titulo = "";
+        ImageIcon icono = null;
+
+        // Determinar el mensaje, título e ícono según la puntualidad
+        switch (puntualidad) {
+            case "MUY PUNTUAL":
+                mensaje = "Felicidades, has llegado muy puntual";
+                titulo = "¡Excelente!";               
+                break;
+            case "PUNTUAL":
+                mensaje = "Felicidades, has llegado puntual";
+                titulo = "¡Bien hecho!";
+                break;
+            case "TARDANZA":
+                mensaje = "Intenta llegar más temprano el próximo día";
+                titulo = "¡Mejora tu puntualidad!";            
+                break;
+            default:
+                break;
+        }
+
+        // Mostrar el JOptionPane personalizado
+        if (!mensaje.isEmpty()) {
+            JOptionPane.showMessageDialog(this, mensaje, titulo, JOptionPane.PLAIN_MESSAGE, icono);
+        }
+
         txtDNI.setText("");  
-        }  
+    }  
     }//GEN-LAST:event_btnAceptarActionPerformed
 
     private void txtDNIMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtDNIMousePressed

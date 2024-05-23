@@ -1,6 +1,7 @@
 package Vistas;
 
 import Modelo.Asistencia;
+import ModeloDAO.AsistenciaDAO;
 import java.awt.Desktop;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -54,7 +55,7 @@ public class IFormVerAsistencia extends javax.swing.JInternalFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jDateFechaFin = new com.toedter.calendar.JDateChooser();
-        btnExportar1 = new javax.swing.JButton();
+        btnBuscar = new javax.swing.JButton();
 
         setClosable(true);
         setResizable(true);
@@ -130,14 +131,14 @@ public class IFormVerAsistencia extends javax.swing.JInternalFrame {
         jLabel5.setForeground(new java.awt.Color(102, 102, 102));
         jLabel5.setText("Al:");
 
-        btnExportar1.setBackground(new java.awt.Color(153, 0, 0));
-        btnExportar1.setFont(new java.awt.Font("STXinwei", 1, 18)); // NOI18N
-        btnExportar1.setForeground(new java.awt.Color(255, 255, 255));
-        btnExportar1.setText("Buscar");
-        btnExportar1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
-        btnExportar1.addActionListener(new java.awt.event.ActionListener() {
+        btnBuscar.setBackground(new java.awt.Color(153, 0, 0));
+        btnBuscar.setFont(new java.awt.Font("STXinwei", 1, 18)); // NOI18N
+        btnBuscar.setForeground(new java.awt.Color(255, 255, 255));
+        btnBuscar.setText("Buscar");
+        btnBuscar.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
+        btnBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnExportar1ActionPerformed(evt);
+                btnBuscarActionPerformed(evt);
             }
         });
 
@@ -172,7 +173,7 @@ public class IFormVerAsistencia extends javax.swing.JInternalFrame {
                 .addContainerGap(43, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(btnExportar1, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(btnExportar, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 750, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -200,7 +201,7 @@ public class IFormVerAsistencia extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, 19, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnExportar, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE)
-                    .addComponent(btnExportar1, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE))
+                    .addComponent(btnBuscar, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE))
                 .addGap(14, 14, 14))
         );
 
@@ -209,9 +210,17 @@ public class IFormVerAsistencia extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnExportar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExportar1ActionPerformed
+    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
+        
+        java.util.Date fechaInicio = jDateFechaInicio.getDate();
+        java.util.Date fechaFin = jDateFechaFin.getDate();
+        
+        if (fechaInicio == null || fechaFin == null) {
+        JOptionPane.showMessageDialog(rootPane, "Por favor, seleccione las fechas de inicio y fin.");
+        return;
+    }
         mostrarTablaAsistencias();
-    }//GEN-LAST:event_btnExportar1ActionPerformed
+    }//GEN-LAST:event_btnBuscarActionPerformed
 
     private void btnExportarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExportarActionPerformed
         try {
@@ -232,7 +241,7 @@ public class IFormVerAsistencia extends javax.swing.JInternalFrame {
         } else {
             // Obtener las asistencias por área y rango de fechas
             String area = jComboAreas.getSelectedItem().toString();
-            Asistencia asis = new Asistencia();
+            AsistenciaDAO asis = new AsistenciaDAO();
             ArrayList<Asistencia> asistencias = asis.obtenerAsistenciasPorAreaYFechas(area, fechaInicioStr, fechaFinStr);
 
             // Limpiar el modelo antes de agregar nuevas filas
@@ -317,8 +326,8 @@ public class IFormVerAsistencia extends javax.swing.JInternalFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnExportar;
-    private javax.swing.JButton btnExportar1;
     private javax.swing.JComboBox<String> jComboAreas;
     private com.toedter.calendar.JDateChooser jDateFechaFin;
     private com.toedter.calendar.JDateChooser jDateFechaInicio;

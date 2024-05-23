@@ -1,5 +1,12 @@
 package Vistas;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import javax.swing.JOptionPane;
+
 
 public class IFormInfo extends javax.swing.JInternalFrame {
 
@@ -50,7 +57,7 @@ public class IFormInfo extends javax.swing.JInternalFrame {
         jComboBox1.setBackground(new java.awt.Color(255, 255, 255));
         jComboBox1.setFont(new java.awt.Font("Monospaced", 1, 18)); // NOI18N
         jComboBox1.setForeground(new java.awt.Color(0, 0, 0));
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECCIONAR", "GERENCIA", "RECEPCIÓN", "CAJAS", "LIMPIEZA", "SEGURIDAD", "ALMACEN", "COMIDAS", "PISO", "ADUANAS", "FRUTAS Y VERDURAS", "CARNICERÍA", "PANADERÍA" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECCIONAR", "RECEPCIÓN", "CAJAS", "LIMPIEZA", "SEGURIDAD", "ALMACEN", "COMIDAS", "PISO", "ADUANAS", "FRUTAS Y VERDURAS", "CARNICERÍA", "PANADERÍA" }));
         jComboBox1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
         jPanel3.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 110, 170, -1));
 
@@ -98,7 +105,7 @@ public class IFormInfo extends javax.swing.JInternalFrame {
         jLabel1.setFont(new java.awt.Font("Monospaced", 1, 48)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(102, 102, 102));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Busqueda de Empleado");
+        jLabel1.setText("INFORMACIÓN DE TIENDA");
         jPanel3.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 17, 828, -1));
 
         jSeparator2.setForeground(new java.awt.Color(102, 102, 102));
@@ -137,7 +144,7 @@ public class IFormInfo extends javax.swing.JInternalFrame {
 
         jTxtInfo.setBackground(new java.awt.Color(255, 255, 255));
         jTxtInfo.setColumns(20);
-        jTxtInfo.setFont(new java.awt.Font("Monospaced", 1, 12)); // NOI18N
+        jTxtInfo.setFont(new java.awt.Font("Monospaced", 1, 16)); // NOI18N
         jTxtInfo.setForeground(new java.awt.Color(0, 0, 0));
         jTxtInfo.setRows(5);
         jScrollPane1.setViewportView(jTxtInfo);
@@ -172,48 +179,35 @@ public class IFormInfo extends javax.swing.JInternalFrame {
 
     private void btnBuscActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscActionPerformed
        
-        
+        try {
         String opcionSeleccionada = (String) jComboBox1.getSelectedItem();
-        switch (opcionSeleccionada) {
-            case "GERENCIA":
-        jTxtInfo.setText("Gerente de tienda(1)\nAsistetes de gerentes(2)(Uno en turno\nmañana y otro en turno tarde)\nJefe de RRHH(2)(Uno en turno mañana\ny otro en turno tarde)");              
-                break;
-            case "RECEPCIÓN":
-        jTxtInfo.setText("Recepcionistas(6)\n(1 minimo por turno)");
-                break;
-            case "CAJAS":
-        jTxtInfo.setText("Jefe(1)\nFrente de caja(9)\n(2 minimo por turno)\nCajeros/as(min=24; max=27)\n(8 mínimo por turno)");
-                break;
-            case "LIMPIEZA":
-        jTxtInfo.setText("Jefe(1)\nPersonal de limpieza\n(Min=15; Max=18)\n(4 Minimo por turno)");
-                break;
-            case "SEGURIDAD":
-        jTxtInfo.setText("Jefe(1)\nPersonal de seguridad\n(Min=15; Max=18)\n(4 mínimo por turno)");
-                break;
-            case "ALMACEN":
-        jTxtInfo.setText("Jefe(1)\nPersonal de almacén\n(Min=21; Max=24\n(6 mínimo por turno");
-                break;   
-            case "COMIDAS":
-        jTxtInfo.setText("Jefe(1)\nPersonal de sector comidas\n(Min=21; Max=24\n(6 mínimo por turno");
-                break;    
-           case "PISO":
-        jTxtInfo.setText("Jefe(1)\nReponedores/Acomodadores\n(Min=27; Max=30\n(8 mínimo por turno");
-                break;   
-           case "ADUANAS":
-        jTxtInfo.setText("Jefe(1)\nFrente de aduanas(9)\n(2 minimo por turno)\nAduaneros/as(min=24; max=27)\n(8 mínimo por turno)");
-                break;   
-           case "FRUTAS Y VERDURAS":
-        jTxtInfo.setText("Jefe(1)\nPersonal de sector frutas y comidas\n(Min=15; Max=18\n(4 mínimo por turno");
-                break;           
-           case "CARNICERÍA":
-        jTxtInfo.setText("Jefe(1)\nPersonal de carnicería\n(Min=15; Max=18\n(4 mínimo por turno");
-                break;     
-           case "PANADERÍA":
-        jTxtInfo.setText("Jefe(1)\nPersonal de panadería\n(Min=15; Max=18\n(4 mínimo por turno");
-                break;           
-            default:       
-        jTxtInfo.setText("Opción no válida");
-      }
+        
+        // Conectar a la base de datos
+        Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/supermercado", "root", "");       
+        String query = "SELECT PersonalMin, PersonalMax FROM areas WHERE Nombre = ?";
+        PreparedStatement pstmt = conn.prepareStatement(query);
+        pstmt.setString(1, opcionSeleccionada);
+        ResultSet rs = pstmt.executeQuery();
+
+        if (rs.next()) {
+            int personalMin = rs.getInt("PersonalMin");
+            int personalMax = rs.getInt("PersonalMax");
+            
+            // Calcular el mínimo por turno
+            int minPorTurno = (personalMin - 3) / 3;
+            
+            // Actualizar el texto de la información
+            String textoInfo = "Personal de " + opcionSeleccionada + "\n(Min=" + personalMin + "; Max=" + personalMax + ")\n(" + minPorTurno + " mínimo por turno)";
+            jTxtInfo.setText(textoInfo);
+        } else {
+            jTxtInfo.setText("Opción no válida");
+        }
+
+        conn.close();
+    } catch (SQLException e) {
+        e.printStackTrace();
+        JOptionPane.showMessageDialog(this, "Error al obtener información del área", "Error", JOptionPane.ERROR_MESSAGE);
+    }
 
     }//GEN-LAST:event_btnBuscActionPerformed
 

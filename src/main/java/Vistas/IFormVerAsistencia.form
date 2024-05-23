@@ -66,7 +66,7 @@
                   <EmptySpace pref="43" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="1" attributes="0">
                       <Group type="102" attributes="0">
-                          <Component id="btnExportar1" min="-2" pref="95" max="-2" attributes="0"/>
+                          <Component id="btnBuscar" min="-2" pref="95" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="btnExportar" min="-2" pref="95" max="-2" attributes="0"/>
                       </Group>
@@ -101,7 +101,7 @@
                   <EmptySpace type="unrelated" pref="19" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="btnExportar" alignment="3" pref="35" max="32767" attributes="0"/>
-                      <Component id="btnExportar1" alignment="3" pref="35" max="32767" attributes="0"/>
+                      <Component id="btnBuscar" alignment="3" pref="35" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
               </Group>
@@ -276,7 +276,7 @@
         </Component>
         <Component class="com.toedter.calendar.JDateChooser" name="jDateFechaFin">
         </Component>
-        <Component class="javax.swing.JButton" name="btnExportar1">
+        <Component class="javax.swing.JButton" name="btnBuscar">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="0" green="0" red="99" type="rgb"/>
@@ -295,7 +295,7 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnExportar1ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnBuscarActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>

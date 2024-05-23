@@ -182,19 +182,30 @@ public class FrameGestionarPersonal extends javax.swing.JFrame {
 
     private void btnCambiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCambiarActionPerformed
         try {
-            // Obtener el número de trabajadores seleccionado
-            int numTrabajadores = Integer.parseInt(jComboTrabajadores.getSelectedItem().toString());
 
-            // Calcular los nuevos valores de PersonalMin y PersonalMax
-            int nuevoMin = numTrabajadores * 3 + 3;
-            int nuevoMax = numTrabajadores * 3 + 6;
+        String nombreArea = jComboArea.getSelectedItem().toString();
+        String numeroTrabajadoresStr = jComboTrabajadores.getSelectedItem().toString();
 
-            // Mostrar los nuevos valores en los campos de texto
-            txtMin.setText(Integer.toString(nuevoMin));
-            txtMax.setText(Integer.toString(nuevoMax));
-        } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(this, "Selecciona un número de trabajadores válido");
+        if (nombreArea.equals("Seleccione un área")) {
+            JOptionPane.showMessageDialog(this, "Seleccione un área", "Advertencia", JOptionPane.WARNING_MESSAGE);
+            return; 
         }
+
+        if (numeroTrabajadoresStr.equals("Seleccione el número de trabajadores")) {
+            JOptionPane.showMessageDialog(this, "Seleccione el número de trabajadores", "Advertencia", JOptionPane.WARNING_MESSAGE);
+            return; 
+        }
+
+        int numTrabajadores = Integer.parseInt(numeroTrabajadoresStr);
+
+        int nuevoMin = numTrabajadores * 3 + 3;
+        int nuevoMax = numTrabajadores * 3 + 5;
+
+        txtMin.setText(Integer.toString(nuevoMin));
+        txtMax.setText(Integer.toString(nuevoMax));
+    } catch (NumberFormatException e) {
+        JOptionPane.showMessageDialog(this, "Selecciona un número de trabajadores válido");
+    }
     }//GEN-LAST:event_btnCambiarActionPerformed
 
     private void txtMinKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtMinKeyTyped
@@ -203,63 +214,74 @@ public class FrameGestionarPersonal extends javax.swing.JFrame {
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
         try {
-            // Obtener el nombre del área seleccionada
-            String nombreArea = jComboArea.getSelectedItem().toString();
+        
+        String nombreArea = jComboArea.getSelectedItem().toString();
+        String numeroTrabajadores = jComboTrabajadores.getSelectedItem().toString();
 
-            // Obtener los nuevos valores de PersonalMin y PersonalMax
-            int nuevoMin = Integer.parseInt(txtMin.getText());
-            int nuevoMax = Integer.parseInt(txtMax.getText());
+        if (nombreArea.equals("Seleccione un área")) {
+            JOptionPane.showMessageDialog(this, "Seleccione un área", "Advertencia", JOptionPane.WARNING_MESSAGE);
+            return; 
+        }
 
-            // Conectar a la base de datos
-            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/supermercado", "root", "");
+        if (numeroTrabajadores.equals("Seleccione el número de trabajadores")) {
+            JOptionPane.showMessageDialog(this, "Seleccione el número de trabajadores", "Advertencia", JOptionPane.WARNING_MESSAGE);
+            return; 
+        }
 
-            // Actualizar los valores en la base de datos
-            String queryUpdate = "UPDATE areas SET PersonalMin = ?, PersonalMax = ? WHERE Nombre = ?";
-            PreparedStatement pstmtUpdate = conn.prepareStatement(queryUpdate);
-            pstmtUpdate.setInt(1, nuevoMin);
-            pstmtUpdate.setInt(2, nuevoMax);
-            pstmtUpdate.setString(3, nombreArea);
-            int rowsAffected = pstmtUpdate.executeUpdate();
+        int nuevoMin = Integer.parseInt(txtMin.getText());
+        int nuevoMax = Integer.parseInt(txtMax.getText());
 
-            if (rowsAffected > 0) {
-                JOptionPane.showMessageDialog(this, "Cambios guardados exitosamente");
-            } else {
-                JOptionPane.showMessageDialog(this, "Error al guardar los cambios");
-            }
+        Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/supermercado", "root", "");
 
-            conn.close();
-        } catch (SQLException | NumberFormatException e) {
-            e.printStackTrace();
+        String queryUpdate = "UPDATE areas SET PersonalMin = ?, PersonalMax = ? WHERE Nombre = ?";
+        PreparedStatement pstmtUpdate = conn.prepareStatement(queryUpdate);
+        pstmtUpdate.setInt(1, nuevoMin);
+        pstmtUpdate.setInt(2, nuevoMax);
+        pstmtUpdate.setString(3, nombreArea);
+        int rowsAffected = pstmtUpdate.executeUpdate();
+
+        if (rowsAffected > 0) {
+            JOptionPane.showMessageDialog(this, "Cambios guardados exitosamente");
+        } else {
             JOptionPane.showMessageDialog(this, "Error al guardar los cambios");
         }
+
+        conn.close();
+    } catch (SQLException | NumberFormatException e) {
+        e.printStackTrace();
+        JOptionPane.showMessageDialog(this, "Error al guardar los cambios");
+    }
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
         try {
-            // Obtener el nombre del área seleccionada
-            String nombreArea = jComboArea.getSelectedItem().toString();
+        
+        String nombreArea = jComboArea.getSelectedItem().toString();
 
-            // Conectar a la base de datos
-            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/supermercado", "root", "");
-
-            // Consulta para obtener los datos del área
-            String query = "SELECT PersonalMin, PersonalMax FROM areas WHERE Nombre = ?";
-            PreparedStatement pstmt = conn.prepareStatement(query);
-            pstmt.setString(1, nombreArea);
-            ResultSet rs = pstmt.executeQuery();
-
-            if (rs.next()) {
-                // Mostrar los valores en los campos de texto
-                txtMin.setText(Integer.toString(rs.getInt("PersonalMin")));
-                txtMax.setText(Integer.toString(rs.getInt("PersonalMax")));
-            } else {
-                JOptionPane.showMessageDialog(this, "No se encontró el área especificada");
-            }
-
-            conn.close();
-        } catch (SQLException e) {
-            e.printStackTrace();
+        
+        if (nombreArea.equals("Seleccione un área")) {
+            JOptionPane.showMessageDialog(this, "Seleccione un área", "Advertencia", JOptionPane.WARNING_MESSAGE);
+            return; 
         }
+       
+        Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/supermercado", "root", "");       
+        String query = "SELECT PersonalMin, PersonalMax FROM areas WHERE Nombre = ?";
+        PreparedStatement pstmt = conn.prepareStatement(query);
+        pstmt.setString(1, nombreArea);
+        ResultSet rs = pstmt.executeQuery();
+
+        if (rs.next()) {
+            
+            txtMin.setText(Integer.toString(rs.getInt("PersonalMin")));
+            txtMax.setText(Integer.toString(rs.getInt("PersonalMax")));
+        } else {
+            JOptionPane.showMessageDialog(this, "Selecciona un área");
+        }
+
+        conn.close();
+    } catch (SQLException e) {
+        e.printStackTrace();
+     }
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     private void txtMaxKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtMaxKeyTyped

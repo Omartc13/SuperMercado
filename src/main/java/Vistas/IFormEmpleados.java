@@ -1,18 +1,12 @@
 package Vistas;
 
 import Modelo.Empleado;
-import com.google.protobuf.Message;
 import java.awt.Desktop;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.text.MessageFormat;
 import java.util.ArrayList;
-import javax.print.attribute.HashPrintRequestAttributeSet;
-import javax.print.attribute.PrintRequestAttributeSet;
-import javax.print.attribute.standard.OrientationRequested;
 import javax.swing.JFileChooser;
-import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
@@ -21,6 +15,7 @@ import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
+import ModeloDAO.EmpleadoDAO;
 
 /**
  *
@@ -29,6 +24,7 @@ import org.apache.poi.ss.usermodel.Workbook;
 public class IFormEmpleados extends javax.swing.JInternalFrame {
 
     Empleado emple;
+    EmpleadoDAO empled;
     DefaultTableModel modelo = new DefaultTableModel();
     
     public IFormEmpleados() {
@@ -312,9 +308,9 @@ public class IFormEmpleados extends javax.swing.JInternalFrame {
     
     public void MostrarTAblaEmplePorArea(String area){
         
-        emple = new Empleado();
+        empled = new EmpleadoDAO();
         ArrayList<Empleado> listaEmple = new ArrayList<>();
-        listaEmple = emple.MostrarEmpleSegunArea(area);
+        listaEmple = empled.MostrarEmpleSegunArea(area);
         
         for (int i = 0; i < listaEmple.size(); i++) {
             Object[] data ={

@@ -1,6 +1,15 @@
 
-package Vistas;
+package VistasPrincipales;
 
+import Vistas.FrameRegAsisEmple;
+import Vistas.IFormAsigHorario;
+import Vistas.IFormEmpleados;
+import Vistas.IFormGesPagos;
+import Vistas.IFormInfo;
+import Vistas.IFormPagos;
+import Vistas.IFormVerAsistencia;
+import Vistas.IFormVerHorarios;
+import VistasPrincipales.Login;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;

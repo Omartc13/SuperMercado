@@ -85,20 +85,19 @@
               <Color blue="0" green="0" red="0" type="rgb"/>
             </Property>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="13">
+              <StringArray count="12">
                 <StringItem index="0" value="SELECCIONAR"/>
-                <StringItem index="1" value="GERENCIA"/>
-                <StringItem index="2" value="RECEPCI&#xd3;N"/>
-                <StringItem index="3" value="CAJAS"/>
-                <StringItem index="4" value="LIMPIEZA"/>
-                <StringItem index="5" value="SEGURIDAD"/>
-                <StringItem index="6" value="ALMACEN"/>
-                <StringItem index="7" value="COMIDAS"/>
-                <StringItem index="8" value="PISO"/>
-                <StringItem index="9" value="ADUANAS"/>
-                <StringItem index="10" value="FRUTAS Y VERDURAS"/>
-                <StringItem index="11" value="CARNICER&#xcd;A"/>
-                <StringItem index="12" value="PANADER&#xcd;A"/>
+                <StringItem index="1" value="RECEPCI&#xd3;N"/>
+                <StringItem index="2" value="CAJAS"/>
+                <StringItem index="3" value="LIMPIEZA"/>
+                <StringItem index="4" value="SEGURIDAD"/>
+                <StringItem index="5" value="ALMACEN"/>
+                <StringItem index="6" value="COMIDAS"/>
+                <StringItem index="7" value="PISO"/>
+                <StringItem index="8" value="ADUANAS"/>
+                <StringItem index="9" value="FRUTAS Y VERDURAS"/>
+                <StringItem index="10" value="CARNICER&#xcd;A"/>
+                <StringItem index="11" value="PANADER&#xcd;A"/>
               </StringArray>
             </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -242,7 +241,7 @@
               <Color blue="66" green="66" red="66" type="rgb"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="Busqueda de Empleado"/>
+            <Property name="text" type="java.lang.String" value="INFORMACI&#xd3;N DE TIENDA"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -375,7 +374,7 @@
                 </Property>
                 <Property name="columns" type="int" value="20"/>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Monospaced" size="12" style="1"/>
+                  <Font name="Monospaced" size="16" style="1"/>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="0" green="0" red="0" type="rgb"/>
