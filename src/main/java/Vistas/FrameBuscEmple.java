@@ -15,6 +15,7 @@ public class FrameBuscEmple extends javax.swing.JFrame {
     public FrameBuscEmple() {
         initComponents();
         setLocationRelativeTo(null);
+        setResizable(false);
     }
 
     @SuppressWarnings("unchecked")
@@ -388,7 +389,7 @@ public class FrameBuscEmple extends javax.swing.JFrame {
         }
     }
 
-    //Metodo para colocar JcomboAreaEmpledo    
+    //Metodo para colocar JcomboAreaEmpleado    
     public void AreaEmple(String Area) {
         switch (Area) {
             case "GERENCIA" ->

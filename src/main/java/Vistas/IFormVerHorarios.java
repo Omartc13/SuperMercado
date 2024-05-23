@@ -49,7 +49,7 @@ public class IFormVerHorarios extends javax.swing.JInternalFrame {
             SimpleDateFormat formatoFec = new SimpleDateFormat("YYYY-MM-dd");
             String fechahor = formatoFec.format(fechaSeleccionada);
 
-            EmpleadoDAO empleado = new EmpleadoDAO();
+            Empleado empleado = new Empleado();
             ArrayList<Horario> horarios = empleado.obtenerHorariosPorAreaYFecha(area, fechahor);
 
             // Limpiar el modelo antes de agregar nuevas filas

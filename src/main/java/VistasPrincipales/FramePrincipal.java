@@ -17,11 +17,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
-import java.time.Month;
 import java.util.HashMap;
 import javax.swing.DefaultListModel;
 import javax.swing.JDesktopPane;
-import javax.swing.JFrame;
 import javax.swing.UIManager;
 
 /**
@@ -459,11 +457,11 @@ public class FramePrincipal extends javax.swing.JFrame {
     StringBuilder mensaje = new StringBuilder();
 
     if (diaSemana == DayOfWeek.SATURDAY || diaSemana == DayOfWeek.SUNDAY) {
-        mensaje.append("-No olvidar generar los horarios\npara la semana entrante\n\n");
+        mensaje.append("-NO OLVIDAR GENERAR\nLOS HORARIOS PARA LA\nSEMANA ENTRANTE\n");
     }
 
     if (diaMes >= 28 && diaMes <= 31) {
-        mensaje.append("-Recordar generar pagos para\ncalcular bonificaciones y penalizaciones\n");
+        mensaje.append("-RECORDAR GENERAR\nPAGOS PARA CALCULAR\nBONIFICACIONES Y\nPENALIZACIONES");
     }
 
     if (mensaje.length() == 0) {
