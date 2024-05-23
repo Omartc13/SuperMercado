@@ -369,7 +369,7 @@ public class FrameDespEmple extends javax.swing.JFrame {
             String con = JOptionPane.showInputDialog("Escriba su contraseña");
 
             //Guarda Estado De ValidaciónAdmin
-            boolean estAd = empled.validarAdmin(usu, con);
+            boolean estAd = emple.validarAdmin(usu, con);
 
             //Verifica el usuario y contraseña del admin
             if (estAd) {
