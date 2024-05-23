@@ -21,7 +21,6 @@ import ModeloDAO.EmpleadoDAO;
 public class FrameEditEmple extends javax.swing.JFrame {
 
     Empleado emple;
-    EmpleadoDAO empled;
     Connection con;
     ConexionBD cn = new ConexionBD();
     Statement st;
@@ -31,6 +30,7 @@ public class FrameEditEmple extends javax.swing.JFrame {
     public FrameEditEmple() {
         initComponents();
         setLocationRelativeTo(null);
+        setResizable(false);
     }
 
     /**
@@ -406,7 +406,7 @@ public class FrameEditEmple extends javax.swing.JFrame {
             String con = JOptionPane.showInputDialog("Escriba su contraseña");
 
             //Guarda Estado De ValidaciónAdmin
-            boolean estAd = empled.validarAdmin(usu, con);
+            boolean estAd = emple.validarAdmin(usu, con);
 
             //Verifica el usuario y contraseña del admin
             if (estAd) {

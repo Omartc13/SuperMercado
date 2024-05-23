@@ -12,11 +12,12 @@ import ModeloDAO.EmpleadoDAO;
 public class FrameDespEmple extends javax.swing.JFrame {
 
     Empleado emple;
-    EmpleadoDAO empled;
+    
 
     public FrameDespEmple() {
         initComponents();
         setLocationRelativeTo(null);
+        setResizable(false);
     }
 
     /**

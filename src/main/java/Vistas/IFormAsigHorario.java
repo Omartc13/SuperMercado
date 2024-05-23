@@ -1,6 +1,7 @@
 package Vistas;
 
 
+import Modelo.Empleado;
 import Modelo.Horario;
 import ModeloDAO.EmpleadoDAO;
 import ModeloDAO.HorarioDAO;
@@ -394,7 +395,7 @@ public class IFormAsigHorario extends javax.swing.JInternalFrame {
         String fechaInicioStr = formatoFec.format(fechaInicio);
         String fechaFinStr = formatoFec.format(fechaFin);
 
-        EmpleadoDAO empleado = new EmpleadoDAO();
+        Empleado empleado = new Empleado();
         ArrayList<Horario> horarios = empleado.obtenerHorariosPorAreaYFechas(area, fechaInicioStr, fechaFinStr);
 
         // Limpiar el modelo antes de agregar nuevas filas

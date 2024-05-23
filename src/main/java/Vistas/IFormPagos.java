@@ -31,6 +31,9 @@ public class IFormPagos extends javax.swing.JInternalFrame {
     public IFormPagos() {
         initComponents();
         establecerColumnas();
+        for (int column = 0; column < jTablePagos.getColumnCount(); column++) {
+            jTablePagos.setDefaultEditor(jTablePagos.getColumnClass(column), null);
+        }
     }
 
     private void establecerColumnas() {

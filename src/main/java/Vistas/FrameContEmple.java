@@ -19,6 +19,7 @@ public class FrameContEmple extends javax.swing.JFrame {
     public FrameContEmple() {
         initComponents();
         setLocationRelativeTo(null);
+        setResizable(false);
     }
 
 
@@ -292,7 +293,7 @@ public class FrameContEmple extends javax.swing.JFrame {
 
     private void btnContratarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnContratarActionPerformed
 
-        empled = new EmpleadoDAO();
+        emple = new Empleado();
 
         if (CamposVacios()) {
 
@@ -312,7 +313,7 @@ public class FrameContEmple extends javax.swing.JFrame {
                 String con = JOptionPane.showInputDialog("Escriba su contraseña");
 
                 //guarda el estado de validadcion de usuario
-                boolean estAd = empled.validarAdmin(usu, con);
+                boolean estAd = emple.validarAdmin(usu, con);
 
                 //Verifica el usuario y contraseña del admin
                 if (estAd) {

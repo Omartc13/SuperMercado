@@ -8,7 +8,6 @@ import java.io.IOException;
 import javax.swing.table.DefaultTableModel;
 import java.sql.*;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Date;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
@@ -28,6 +27,13 @@ public class IFormGesPagos extends javax.swing.JInternalFrame {
     public IFormGesPagos() {
         initComponents();
         establecerColumnas();
+        for (int column = 0; column < jTablePagos.getColumnCount(); column++) {
+            jTablePagos.setDefaultEditor(jTablePagos.getColumnClass(column), null);
+        }
+        this.setResizable(false);
+        this.setMaximizable(false);
+        this.setIconifiable(false);
+        this.setClosable(true);
     }
 
     private void establecerColumnas() {
